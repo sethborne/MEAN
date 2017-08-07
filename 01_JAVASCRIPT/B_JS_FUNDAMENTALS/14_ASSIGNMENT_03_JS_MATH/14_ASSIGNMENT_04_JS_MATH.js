@@ -63,3 +63,21 @@ console.log("Math 4 - First Test Result: " + createDummyArrayTest1);
 let createDummyArrayTest2 = createDummyArray(20);
 console.log("Math 4 - Second Test Result: " + createDummyArrayTest2);
 // array of 20
+
+function randomChoice(paramArray) {
+    if (paramArray.length > 0) {
+        let randArrayIndexVal = Math.floor(Math.random() * paramArray.length)
+        return paramArray[randArrayIndexVal];
+    } else {
+        return "The Array is Empty";
+    }
+}
+
+let randomChoiceTest1 = randomChoice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+console.log("Math 5 - First Test Result: " + randomChoiceTest1);
+let randomChoiceTest2 = randomChoice([1, 2]);
+console.log("Math 5 - Second Test Result: " + randomChoiceTest2);
+let randomChoiceTest3 = randomChoice(["Herbie"]);
+console.log("Math 5 - Third Test Result: " + randomChoiceTest3);
+let randomChoiceTest4 = randomChoice([]);
+console.log("Math 5 - Fourth Test Result: " + randomChoiceTest4);

@@ -20,4 +20,4 @@ Complete the below challenges using JavaScript's Math object.
 
 ### Math 5
 
-Write a function called ```random_choice()```. This function should take an array. Return a random element of the array, based on its length. This function should never return undefined.
+~~Write a function called ```random_choice()```. This function should take an array. Return a random element of the array, based on its length. This function should never return undefined.~~

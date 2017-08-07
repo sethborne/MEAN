@@ -30,7 +30,7 @@ draw_stars(x) should print the following in when invoked:
 *******
 *************************
 ```
-### Part III
+~~### Part III~~
 
 Modify the function above. Allow an array containing integers and strings to be passed to the drawStars() function. When a string is passed, instead of displaying *, display the first letter of the string according to the example below. You may use the .toLowerCase() string method for this part.
 

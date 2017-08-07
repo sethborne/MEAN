@@ -62,3 +62,25 @@ for (let i = 0; i < z.length; i += 1) {
     if (i === z.length - 1) { continue }
     console.log('Ignore Last - Second Loop: ' + i);
 }
+
+// Basic 4
+
+// Create a variable names and store the array ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso']
+
+let names = ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso'];
+
+// Print the length of all names to the console.
+
+for (let i = 0; i < names.length; i += 1) {
+    console.log("The length of item " + i + " in the Array, whose value is: " + names[i] + " is " + names[i].length);
+}
+
+// Now modify your code so only names with a length of 5 print.
+
+console.log("                                                         ");
+
+for (let i = 0; i < names.length; i += 1) {
+    if (names[i].length === 5) {
+        console.log("The length of item " + i + " in the Array, whose value is: " + names[i] + " is " + names[i].length);
+    }
+}

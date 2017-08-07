@@ -30,11 +30,11 @@ Complete the following challenges using JavaScript. After each challenge, commen
 
 ### Basic 4
 
-• Create a variable names and store the array ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso']
+~~• Create a variable names and store the array ['Kadie', 'Joe', 'Fritz', 'Pierre', 'Alphonso']~~
 
-• Print the length of all names to the console.
+~~• Print the length of all names to the console.~~
 
-• Now modify your code so only names with a length of 5 print.
+~~• Now modify your code so only names with a length of 5 print.~~
 
 ### Basic 5
 

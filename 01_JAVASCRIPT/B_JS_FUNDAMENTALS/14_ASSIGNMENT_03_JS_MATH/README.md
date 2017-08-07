@@ -8,7 +8,7 @@ Complete the below challenges using JavaScript's Math object.
 
 ### Math 2
 
-Write a function called ```is_even()```. This function should take an number. Return true if the input number is even, return false if the number is odd.
+~~Write a function called ```is_even()```. This function should take an number. Return true if the input number is even, return false if the number is odd.~~
 
 ### Math 3
 

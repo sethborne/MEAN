@@ -11,7 +11,7 @@ let stars = starString(8)
 ```
 If we console.log(stars) we should see ******** printed in our terminal.
 
-### Part II
+~~### Part II~~
 
 Create a function called drawStars() that takes an array of numbers and prints out *.
 

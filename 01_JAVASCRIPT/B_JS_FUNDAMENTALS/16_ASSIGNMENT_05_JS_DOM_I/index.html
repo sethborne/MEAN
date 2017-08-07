@@ -1,0 +1,28 @@
+<html>
+
+<body>
+    <h1>Students</h1>
+    <ul id="main">
+        <!--Empty-->
+    </ul>
+    <script>
+        // function appendList(paramArray, id) {
+        function superAppendList(paramArray, element, id) {
+            //finish this function
+            for (let i = 0; i < paramArray.length; i += 1) {
+                // let listItem = "<li>" + paramArray[i] + "</li>"
+                // document.getElementById(targetId).innerHTML = listItem;
+                // console.log("Test");
+                let listItem = document.createElement(element);
+                listItem.innerHTML = paramArray[i];
+                document.getElementById(targetId).appendChild(listItem);
+            }
+        }
+        let students = ["Jeff", "Jenny", "Javier", "Joslyn", "Joe", "Jane", "Django"];
+        let targetId = "main";
+        // appendList(students, targetId);
+        superAppendList(students, "li", targetId);
+    </script>
+</body>
+
+</html>

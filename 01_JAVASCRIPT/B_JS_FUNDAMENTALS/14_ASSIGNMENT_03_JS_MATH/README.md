@@ -12,7 +12,7 @@ Complete the below challenges using JavaScript's Math object.
 
 ### Math 3
 
-Write a function called ```how_many_even()```. This function should take an array. Return the total number of elements in the array that are even. You may call is_even() to solve this.
+~~Write a function called ```how_many_even()```. This function should take an array. Return the total number of elements in the array that are even. You may call is_even() to solve this.~~
 
 ### Math 4
 

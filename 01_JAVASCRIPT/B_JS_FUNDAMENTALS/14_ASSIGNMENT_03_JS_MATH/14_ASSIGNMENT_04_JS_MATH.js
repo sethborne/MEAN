@@ -29,3 +29,20 @@ let isEvenTest1 = isEven(2);
 console.log("Math 2 - First Test Result: " + isEvenTest1);
 let isEvenTest2 = isEven(3);
 console.log("Math 2 - Second Test Result: " + isEvenTest2);
+
+function howManyEven(paramArray) {
+    let count = 0;
+    for (let i = 0; i < paramArray.length; i += 1) {
+        if (paramArray[i] % 2 === 0) {
+            count += 1;
+        }
+    }
+    return count;
+}
+
+let howManyEvenTest1 = howManyEven([1, 2, 3, 4])
+console.log("Math 3 - First Test Result: " + howManyEvenTest1);
+// 2
+let howManyEvenTest2 = howManyEven([1, 3, 5, 7])
+console.log("Math 3 - Second Test Result: " + howManyEvenTest2);
+// 0

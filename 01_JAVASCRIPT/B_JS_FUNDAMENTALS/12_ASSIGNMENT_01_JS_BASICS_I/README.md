@@ -14,11 +14,11 @@ Complete the following challenges using JavaScript. After each challenge, commen
 
 ### Basic 2
 
-• Create a const called y, and store an empty array there. Log this to your console.
+~~• Create a const called y, and store an empty array there. Log this to your console.~~
 
-• Use .push() to add the number 88 to array y.
+~~• Use .push() to add the number 88 to array y.~~
 
-• What happened?
+~~• What happened?~~
 
 ### Basic 3
 

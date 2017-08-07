@@ -84,3 +84,20 @@ for (let i = 0; i < names.length; i += 1) {
         console.log("The length of item " + i + " in the Array, whose value is: " + names[i] + " is " + names[i].length);
     }
 }
+
+// Basic 5
+
+// Create a function yell that takes one parameter called string.
+
+function yell(string) {
+    // Make yell return that string in all uppercase.
+    // console.log(string.toUpperCase());
+    return string.toUpperCase();
+
+}
+
+yell("hi");
+
+// Where could you look to find out more about uppercasing strings in JavaScript?
+
+console.log('I guess I could look in the documentation.  Or Online, like StackOverflow or Google It.');

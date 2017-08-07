@@ -38,8 +38,8 @@ Complete the following challenges using JavaScript. After each challenge, commen
 
 ### Basic 5
 
-• Create a function yell that takes one parameter called string.
+~~• Create a function yell that takes one parameter called string.~~
 
-• Make yell return that string in all uppercase.
+~~• Make yell return that string in all uppercase.~~
 
-• Where could you look to find out more about uppercasing strings in JavaScript?
+~~• Where could you look to find out more about uppercasing strings in JavaScript?~~

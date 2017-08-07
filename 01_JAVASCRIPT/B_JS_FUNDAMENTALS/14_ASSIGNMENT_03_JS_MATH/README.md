@@ -16,7 +16,7 @@ Complete the below challenges using JavaScript's Math object.
 
 ### Math 4
 
-Write a function called ```create_dummy_array()```. This function should take a number n. Return an array of random numbers between 0 and 9 with the length of n.
+~~Write a function called ```create_dummy_array()```. This function should take a number n. Return an array of random numbers between 0 and 9 with the length of n.~~
 
 ### Math 5
 

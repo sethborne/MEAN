@@ -46,3 +46,20 @@ console.log("Math 3 - First Test Result: " + howManyEvenTest1);
 let howManyEvenTest2 = howManyEven([1, 3, 5, 7])
 console.log("Math 3 - Second Test Result: " + howManyEvenTest2);
 // 0
+
+function createDummyArray(numVal) {
+    let newArray = [];
+    for (let i = 0; i < numVal; i += 1) {
+        let randNum = Math.floor(Math.random() * 10);
+        newArray.push(randNum);
+        // console.log("Test" + i);
+    }
+    return "[" + newArray + "]";
+}
+
+let createDummyArrayTest1 = createDummyArray(10);
+console.log("Math 4 - First Test Result: " + createDummyArrayTest1);
+// array of 10
+let createDummyArrayTest2 = createDummyArray(20);
+console.log("Math 4 - Second Test Result: " + createDummyArrayTest2);
+// array of 20

@@ -22,11 +22,11 @@ Complete the following challenges using JavaScript. After each challenge, commen
 
 ### Basic 3
 
-• Create a variable z that contains the array [9, 10, 6, 5, -1, 20, 13, 2].
+~~• Create a variable z that contains the array [9, 10, 6, 5, -1, 20, 13, 2].~~
 
-• Print every element to the console.
+~~• Print every element to the console.~~
 
-• Now print every element except the final number.
+~~• Now print every element except the final number.~~
 
 ### Basic 4
 

@@ -25,7 +25,7 @@ Your console should look like the following:
     Name: Nikki, Cohort: June
     Name: Boris, Cohort: June
     
-### Challenge 2
+### ~~Challenge 2~~
 
 Print out the below object to match the example.
 

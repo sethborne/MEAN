@@ -28,13 +28,13 @@ Extend the Ninja class and create the Sensei class.
 
 A Sensei should have (by default):
 
-    200 Health 
-    10 speed
-    10 strength
+    ~~200 Health ~~
+    ~~10 speed~~
+    ~~10 strength~~
     
-In addition, a Sensei should have a new attribute called **wisdom**, and the default should be 10. 
+~~In addition, a Sensei should have a new attribute called **wisdom**, and the default should be 10. ~~
 
-Finally, add the **speakWisdom()** method. **speakWisdom()** should call the **drinkSake()** method from the Ninja class, before console.logging a wise message.
+~~Finally, add the **speakWisdom()** method. **speakWisdom()** should call the **drinkSake()** method from the Ninja class, before console.logging a wise message.~~
 
 ```javascript
 // example output

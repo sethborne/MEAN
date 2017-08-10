@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='head'>
+        </div>
+        <div id='body'>
+            <button id="someButton">Button For EL</button>
+            <script>
+                var button = document.getElementById("someButton");
+                button.addEventListener("click", whatToDoOnClick);
+
+                function whatToDoOnClick() {
+                    alert("You Did It!!!")
+                }
+            </script>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

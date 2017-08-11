@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='/style.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='head'>
+        </div>
+        <div id='body'>
+            <h1 id="getNameTag"></h1>
+
+            <button id="butGetNameFromGithub">Click to Get Info</button>
+
+            <script>
+                $(document).ready(function() {
+                    $("button").click(function() {
+                        $.get("https://api.github.com/users/sethborne", displayName);
+                    });
+
+                    function displayName(data) {
+                        if (data.login) {
+                            //$("body").append("<h1>" + data.login + "</h1>");
+                            document.getElementById("getNameTag").append(data.login);
+                        }
+                    }
+                });
+            </script>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

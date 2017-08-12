@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+        </div>
+        <div id='body'>
+            <h2>Here are All the Users:</h2>
+            <% for (var x in users) { %>
+                <h3>Name:
+                    <%= users[x].name %>
+                </h3>
+                <h4>Email:
+                    <%= users[x].email %>
+                </h4>
+                <% } %>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

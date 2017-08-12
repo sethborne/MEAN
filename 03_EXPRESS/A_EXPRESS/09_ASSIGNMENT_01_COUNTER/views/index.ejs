@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+        </div>
+        <div id='body'>
+            <h1>Count</h1>
+            <h3>
+                <%= countVal %>
+            </h3>
+            <form action="/countOne" method="POST">
+                <input type="hidden" name="numValIncOne" value="1">
+                <input type="submit" value="Count - One">
+            </form>
+            <br>
+            <form action="/countTwo" method="POST">
+                <input type="hidden" name="numValIncTwo" value="2">
+                <input type="submit" value="Count - Two">
+            </form>
+            <br>
+            <form action="/reset" method="POST">
+                <input type="submit" value="Reset">
+            </form>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

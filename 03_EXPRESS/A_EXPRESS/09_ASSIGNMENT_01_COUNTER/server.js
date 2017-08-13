@@ -7,7 +7,6 @@ var session = require("express-session");
 // create express app
 var app = express();
 var bodyParser = require("body-parser");
-//
 
 // use BP
 app.use(bodyParser.urlencoded({ extended: true }));

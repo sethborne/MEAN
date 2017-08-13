@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='css/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+        </div>
+        <hr>
+        <div id='body'>
+            <div class="center">
+                <h1>Welcome to the Great Number Game</h1>
+                <h3>I am thinking of a number between
+                    <%= numValMin %> and
+                        <%= numValMax %>
+                </h3>
+                <h3>Take a Guess!</h3>
+                <br><br>
+
+            </div>
+            <% if(genRandNum > numGuessed) { %>
+                <div class="centerNum bdrBlack bkgrdColorGreen">
+                    <div class="textInset">
+                        <p>To Low</p>
+                    </div>
+                </div>
+                <br><br>
+                <div class="center">
+                    <form action="/guess" method="POST">
+                        <input class="inputTextCenter" type="number" name="numValGuess" placeholder="Enter Your Guess" min="<%= numValMin %>" max="<%= numValMax %>" step="1"><br>
+                        <input class="btnSubmit btnGreen" type="submit" value="Guess!">
+                    </form>
+                </div>
+                <% } else if (genRandNum < numGuessed) { %>
+                    <div class="centerNum bdrBlack bkgrdColorRed">
+                        <div class="textInset">
+                            <p>To High</p>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="center">
+                        <form action="/guess" method="POST">
+                            <input class="inputTextCenter" type="number" name="numValGuess" placeholder="Enter Your Guess" min="<%= numValMin %>" max="<%= numValMax %>" step="1"><br>
+                            <input class="btnSubmit btnGreen" type="submit" value="Guess!">
+                        </form>
+                    </div>
+                    <% } else { %>
+                        <div class="centerNum bdrBlack bkgrdColorOrange">
+                            <div class="textInset">
+                                <p>EQUAL!</p>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div class="center">
+                            <a href="/"><input class="btnSubmit btnGreen" type="submit" value="Play Again!"></a>
+                        </div>
+                        <% } %>
+                            <br><br>
+                            <br><br>
+                            <div class="center">
+                                <p>
+                                    Min Val:
+                                    <%= numValMin %>
+                                </p>
+                                <p>
+                                    Max Val:
+                                    <%= numValMax %>
+                                </p>
+                                <p>
+                                    Random Number Generated:
+                                    <%= genRandNum %>
+                                </p>
+                                <p>
+                                    Input Number Guessed:
+                                    <%= numGuessed %>
+                                </p>
+                            </div>
+
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

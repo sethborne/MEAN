@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='/css/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+            <div class='left'>
+                <ul>
+                    <li>
+                        <h4>Express: Assignment 01: Survey Form: Results</h4>
+                    </li>
+                </ul>
+            </div>
+            <div class='right'></div>
+        </div>
+        <hr>
+        <div id='body'>
+            <div class="dojoSurvey">
+                <label><h4 style='text-align: left' class='h4label'>Your Name:  </h4></label>
+                <h4 class='h4Space'>
+                    <%= info.name %>
+                </h4><br>
+
+                <label><h4 style='text-align: left' class='h4label'>Dojo Location:  </h4></label>
+                <h4 class='h4Space'>
+                    <%= info.location %>
+                </h4><br>
+
+                <label><h4 style='text-align: left' class='h4label'>Dojo Location:  </h4></label>
+                <h4 class='h4Space'>
+                    <%= info.language %>
+                </h4><br>
+
+                <label><h4 style='text-align: left' class='h4label'>Description:  </h4></label>
+                <h4 class='h4Space'>
+                    <%= info.description %>
+                </h4><br>
+
+                <a href="/"><input class='btnSubmit btnGreen' type='submit' value='Return'></a>
+            </div>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

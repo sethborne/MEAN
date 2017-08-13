@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='/css/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+            <div class='left'>
+                <ul>
+                    <li>
+                        <h4>Express: Assignment 01: Survey Form: Index</h4>
+                    </li>
+                </ul>
+            </div>
+            <div class='right'></div>
+        </div>
+        <hr>
+        <div id='body'>
+            <div class="dojoSurvey">
+                <form action="/results" method="POST">
+                    <label for="name">Your Name:</label>
+                    <input class="inputTextLeft" type="text" name="name" placeholder="Name Here">
+
+                    <label for="location">Dojo Location:</label>
+                    <select class="inputTextLeft" name="location">
+                        <option selected disabled></option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="San Francisco">San Francisco</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Chicago">Chicago</option>
+                    </select>
+
+                    <label for="language">Favorite Language:</label>
+                    <select class="inputTextLeft" name="language">
+                        <option selected disabled></option>
+                        <option value="Python">Python</option>
+                        <option value="PHP">PHP</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Java">Java</option>
+                    </select>
+
+                    <label for="description">Description:</label>
+                    <textarea class="textAreaItem" rows="8" cols="20" name="description" placeholder="Please Enter Your Description Here"></textarea>
+
+                    <div class="right">
+                        <input class="btnSubmit btnGreen" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

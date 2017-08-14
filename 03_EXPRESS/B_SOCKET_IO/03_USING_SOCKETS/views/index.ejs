@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var socket = io.connect();
+
+            $("button").click(function() {
+                socket.emit("button_clicked", {
+                    reason: "Because I Want to Learn About Sockets!"
+                })
+            });
+
+            socket.on("server_response", function(data) {
+                console.log("The Server Says: " + data.response);
+            });
+        });
+    </script>
+    <title></title>
+    <link rel='stylesheet' href='css/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+            <div class='left'>
+                <ul>
+                    <li>
+                        <h4>Socket IO: Lesson 03: Using Sockets: Index</h4>
+                    </li>
+                </ul>
+            </div>
+            <div class='right'>
+
+            </div>
+        </div>
+        <hr>
+        <div id='body'>
+            <h1>CATS!</h1>
+            <h1>CATS IN PANTS!</h1>
+            <h1>CATS IN PANT SUITS!</h1>
+            <button>I AM A BUTTON - HERE ME ROAR!</button>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

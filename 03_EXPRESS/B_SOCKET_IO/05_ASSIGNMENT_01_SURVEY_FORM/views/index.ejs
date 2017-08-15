@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='css/style.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var socket = io.connect();
+            console.log('here');
+            $("#surveyForm").submit(function(event) {
+                console.log('here2');
+                event.preventDefault();
+                socket.emit("posting_form", {
+                    name: $("#name").val(),
+                    location: $("#location").val(),
+                    language: $("#language").val(),
+                    comment: $("#comment").val()
+                });
+                $(this).closest('form').find("input[type=text], textarea").val("");
+                $(this).closest('form').find("select").val("default");
+            });
+            socket.on("updated_message", function(data) {
+                // console.log(JSON.stringify(data.response));
+                $("#message").html("<div class='dojoSurvey bkgrdColorGreen'>You emitted the following information to the server: " + JSON.stringify(data.response) + "</div>");
+            });
+            socket.on("random_number", function(data) {
+                $("#randNumber").html("<div class='dojoSurvey bkgrdColorGreen'>The Random Number is: " + JSON.stringify(data.randomNumber) + "</div>")
+                console.log(data.randomNumber);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+            <div class='left'>
+                <ul>
+                    <li>
+                        <h4>Express: Socket IO: Survey Form: Index</h4>
+                    </li>
+                </ul>
+            </div>
+            <div class='right'></div>
+        </div>
+        <hr>
+        <div id='body'>
+            <div id="message">
+            </div>
+            <div id="randNumber"></div>
+            <div class="dojoSurvey">
+                <!--for norm-->
+                <!--<form action="/survey" method="POST">-->
+                <form action="" id="surveyForm">
+                    <label for="name">Name:</label>
+                    <input class="inputTextLeft" type="text" id="name" name="name" placeholder="Your Name Here">
+                    <label for="location">Location:</label>
+                    <select class="inputTextLeft" id="location" name="location">
+                        <option selected disabled>default</option>
+                        <option value="Seattle">Seattle</option>
+                        <option value="San Francisco">San Francisco</option>
+                        <option value="Dallas">Dallas</option>
+                        <option value="San Diego">San Diego</option>
+                    </select>
+                    <label for="language">Language:</label>
+                    <select class="inputTextLeft" id="language" name="language">
+                        <option selected disabled>default</option>
+                        <option value="Java">Java</option>
+                        <option value="PHP">PHP</option>
+                        <option value="Python">Python</option>
+                        <option value="JavaScript">JavaScript</option>
+                    </select>
+                    <label for="comment">Comment:</label>
+                    <textarea class="textAreaItem" rows="8" cols="20" placeholder="Enter Your Comment Here" id="comment" name="comment"></textarea>
+                    <div class="btn-right">
+                        <input id="inputSubmit" class="btnSubmit btnGreen" type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='css/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+            <div class='left'>
+                <ul>
+                    <li><h4>MongoDB: Assignment 01: Quoting Dojo: Index</h4></li>
+                </ul>
+            </div>
+            <div class='right'></div>
+        </div>
+        <hr>
+        <div id='body'>
+            <br><br>
+            <h1 class="center">Welcome to Quoting Dojo!</h1>
+            <div class="dojoSurvey fifty">
+                <form action="/quotes" method="POST">
+                    <% if(typeof(errors) != "undefined") { %>
+                        <% for(var err in errors) { %>
+                            <!-- HTML -->
+                            <p class="errors">
+                                <%= errors[x].message %>
+                            </p>
+                        <% } %>
+                    <% } %>
+                    <label for="name">Your Name:</label>
+                    <input class="inputTextLeft" type="text" name="name" placeholder="Please Enter Your Name">
+                    <label for="quote">Your Quote:</label>
+                    <textarea class="textAreaItem" type="text" name="quote" rows="8" cols="20" placeholder="Please Enter Your Quote"></textarea>
+                    
+                    <div class="btn-center">
+                        <input class="btnSubmit btnGreen" type="submit" value="Add My Quote">
+                    </div>
+                </form>
+                <div class="btn-center">
+                    <a href="/quotes"><input class="btnSubmit btnBlue" type="submit" value="Skip To Quotes"></a>
+                </div>
+            </div>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

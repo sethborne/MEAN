@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='css/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+            <div class='left'>
+                <ul>
+                    <li><h4>MongoDB: Assignment 01: Quoting Dojo: Quotes</h4></li>
+                </ul>
+            </div>
+            <div class='right'></div>
+        </div>
+        <hr>
+        <div id='body'>
+            <br><br>
+            <h2 class="center">Here are the Awesome Quotes!</h2>
+            <div class="dojoSurvey fifty">
+                <% for(var item in quotes) { %>
+                    <% if ( item == 0 ) { %>
+                        <br>
+                        <div class="center">
+                            <h3>"<%= quotes[item].quote %>"</h3>
+                            <p> - by <%= quotes[item].name %>, at <%= moment(quotes[item].createdAt).format("h:mm a [on] MMMM DD YYYY") %></p>
+                        </div>
+                        <br>
+                    <% } else { %>
+                        <hr>
+                        <br>
+                        <div class="center">    
+                            <h3><%= quotes[item].quote %></h3>
+                            <p> - by <%= quotes[item].name %>, at <%= moment(quotes[item].createdAt).format("h:mm a [on] MMMM DD YYYY") %></p>
+                        </div>
+                        <br>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="center">
+                <a href="/"><input class="btnSubmit btnBlue" type="submit" value="Return to Index Page"></a>
+            </div>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

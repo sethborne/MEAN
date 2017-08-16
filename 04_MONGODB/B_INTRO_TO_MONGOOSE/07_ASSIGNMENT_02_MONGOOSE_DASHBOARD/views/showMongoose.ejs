@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='../../css/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+            <div class='left'>
+                <ul>
+                    <li><h4>MongoDB: Assignment 02: Mongoose Dashboard: Show Page</h4></li>
+                </ul>
+            </div>
+            <div class='right'>
+                    <ul>
+                        <li>
+                            <a href="/mongooses/add"><h4>Add A Mongoose</h4></a>
+                        </li>
+                        <li>
+                            <a href="/"><h4>Return to Dashboard</h4></a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+        <hr>
+        <div id='body'>
+        <br>
+            <div id="body-top">
+            </div>
+            <h1 class="center">Show Mongoose</h1>
+            <div class="dojoSurvey forty">
+                    <label><h4 class="h4label">Name:  </h4></label>
+                    <h4 class="h4Space"><%= mongooseToShow.name %></h4>
+                    <br>
+                    <label><h4 class="h4label">Age:  </h4></label>
+                    <h4 class="h4Space"><%= mongooseToShow.age %></h4>
+                    <br>
+                    <label><h4 class="h4label">Color:  </h4></label>
+                    <h4 class="h4Space"><%= mongooseToShow.color %></h4>
+                    <br>
+                    <label><h4 class="h4label">Location:  </h4></label>
+                    <h4 class="h4Space"><%= mongooseToShow.location %></h4>
+                    <br>
+                    <label><h4 class="h4label">Created:  </h4></label>
+                    <h4 class="h4Space"><%= moment(mongooseToShow.createdAt, "YYYYMMDD").fromNow() %></h4>
+            </div>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

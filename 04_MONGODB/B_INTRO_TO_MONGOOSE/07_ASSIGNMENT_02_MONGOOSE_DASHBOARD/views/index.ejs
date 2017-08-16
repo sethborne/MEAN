@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='../css/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+            <div class='left'>
+                <ul>
+                    <li><h4>MongoDB: Assignment 02: Mongoose Dashboard: Index</h4></li>
+                </ul>
+            </div>
+            <div class='right'>
+
+            </div>
+        </div>
+        <hr>
+        <div id='body'>
+        <br>
+            <div id="body-top">
+                <div class='left'>
+
+                </div>
+                <div class='right'>
+                    <div class="btn-right">
+                        <a href="/mongooses/add"><input class="btnSubmit btnBlue" type="submit" name="" value="Create New Mongoose"></a>
+                    </div>
+                </div>
+            </div>
+            <h1>Mongoose Dashboard</h1>
+            <table cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Color</th>
+                        <th>Origin</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(allMongeese) { %>
+                        <!-- <p>There are Mongeese</p> -->
+                        <% for(var item in allMongeese) { %>
+                            <tr>
+                                
+                                <td class="center"><a href="/mongooses/show/<%= allMongeese[item].id %>"><%= allMongeese[item].id %></a></td>
+                                <td class="center"><%= allMongeese[item].name %></td>
+                                <td class="center"><%= allMongeese[item].age %></td>
+                                <td class="center"><%= allMongeese[item].color %></td>
+                                <td class="center"><%= allMongeese[item].location %></td>
+                                <td class="center"><%= moment(allMongeese[item].createdAt, "YYYYMMDD").fromNow()%></td>
+                                <td class="center">
+                                    <form action="/mongooses/destroy/<%= allMongeese[item].id %>" method="POST">
+                                        <input class="btnSubmit btnRedHov" type="submit" value="Remove">
+                                    </form>
+                                    <form action="/mongooses/edit/<%= allMongeese[item].id %>">
+                                        
+                                        <input class="btnSubmit btnBlueHov" type="submit" value="Edit">
+                                    </form>
+                                </td>
+                            </tr>
+                        <% } %>
+                    <% } %>
+                        
+                </tbody>
+            </table>
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

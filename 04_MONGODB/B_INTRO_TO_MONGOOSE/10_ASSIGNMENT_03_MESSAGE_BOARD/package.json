@@ -1,0 +1,22 @@
+{
+  "name": "10_ASSIGNMENT_03_MESSAGE_BOARD",
+  "version": "1.0.0",
+  "description": "For this assignment, you will create a simple single page message board that allows users to create messages, and comment on existing messages. Follow the wireframe below:",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chalk": "^2.1.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "moment": "^2.18.1",
+    "mongoose": "^4.11.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

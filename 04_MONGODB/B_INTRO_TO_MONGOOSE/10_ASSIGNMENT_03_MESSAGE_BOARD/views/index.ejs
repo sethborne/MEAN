@@ -51,7 +51,6 @@
             <div id="section">
                 <div id="message">
                     <h2>All Messages:</h2>
-                    <% console.log(allMessages) %>
                     <% if(allMessages) { %>
                         <% for(mess in allMessages) { %>
                             <% if(mess == 0) { %>
@@ -93,9 +92,16 @@
                                 <h4>Message Content:  <%= allMessages[mess].messageContent %></h4>
                                 <br>
                                 <div id="message">
-                                        <hr>
-                                        <form action="/comment/add" method="POST">
+                                        <% for(var i = 0; i < allMessages[mess]._comments.length; i += 1) { %>
+                                            <hr>
+                                            <h4>Comment Author:  <%= allMessages[mess]._comments[i].name %></h4>
+                                            <h5>Comment Content:  <%= allMessages[mess]._comments[i].commentContent %></h5>
                                             <br>
+                                        <% } %>
+                                        <form action="/comment/<%= allMessages[mess].id %>" method="POST">
+                                            <hr>
+                                            <br>
+                                            <input type="hidden" name="message_id" value="<%= allMessages[mess].id %>">
                                             <div style="width: 50%;">
                                                 <label for="name">Name:</label>
                                                 <input class="inputTextLeft" type="text" name="name" placeholder="Enter Comment Author's Name Here">

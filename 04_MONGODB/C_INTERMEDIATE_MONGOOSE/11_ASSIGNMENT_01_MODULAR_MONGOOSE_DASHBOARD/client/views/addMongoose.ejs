@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='utf-8'>
+    <title></title>
+    <link rel='stylesheet' href='../css/style.css'>
+</head>
+
+<body>
+    <div id='mainContainer'>
+        <div id='header'>
+            <div class='left'>
+                <ul>
+                    <li><h4>MongoDB: Assignment 02: Mongoose Dashboard: Add</h4></li>
+                </ul>
+            </div>
+            <div class='right'>
+                <ul>
+                    <a href="/"><h4>Return to Dashboard</h4></a>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div id='body'>
+        <br>
+            <div id="body-top">
+                <div class='left'>
+
+                </div>
+                <div class='right'>
+                    <div class="btn-right">
+                        <!-- <a href="/"><input class="btnSubmit btnBlue" type="submit" name="" value="Create New Mongoose"></a> -->
+                    </div>
+                </div>
+            </div>
+            <h1>Add a Mongoose To Database</h1>
+            <div class='left'>
+                <% if(typeof(errors) != "undefined") { %>
+                    <% for(var err in errors) { %>
+                        <p class="errors"><%= errors[err].message %></p>
+                    <% } %>
+                <% } %>
+                <form action="/mongooses/add" method="post">
+                    <label for="name">Mongoose Name:</label>
+                    <input class="inputTextLeft" type="text" name="name" placeholder="Mongoose Name Here">
+                    <label for="age">Mongoose Age:</label>
+                    <input class="inputTextLeft" type="number" name="age" placeholder="Mongoose Age Here">
+                    <label for="color">Mongoose Color:</label>
+                    <select class="inputTextLeft" name="color">
+                        <option disabled selected value></option>
+                        <option value="Brown">Brown</option>
+                        <option value="Grey">Grey</option>
+                        <option value="Black">Black</option>
+                        <option value="Brown - Striped">Brown - Striped</option>
+                        <option value="Grey - Striped">Grey - Striped</option>
+                        <option value="Black - Striped">Black - Striped</option>
+                    </select>
+                    <label for="location">Location Of Origin</label>
+                    <select class="inputTextLeft" name="location">
+                        <option disabled selected value></option>
+                        <option value="Africa">Africa</option>
+                        <option value="Asia">Asia</option>
+                    </select>
+                    <div class="btn-right">
+                        <input class="btnSubmit btnGreen" type="submit" value="Add A New Mongoose">
+                    </div>
+                </form>
+            </div>
+            <div class='right'>
+
+            </div>
+
+        </div>
+        <div id='foot'>
+        </div>
+    </div>
+</body>
+
+</html>

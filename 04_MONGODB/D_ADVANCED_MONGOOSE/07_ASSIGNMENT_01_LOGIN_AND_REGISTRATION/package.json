@@ -1,0 +1,20 @@
+{
+  "name": "07_ASSIGNMENT_01_LOGIN_AND_REGISTRATION",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "chalk": "^2.1.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "moment": "^2.18.1"
+  }
+}

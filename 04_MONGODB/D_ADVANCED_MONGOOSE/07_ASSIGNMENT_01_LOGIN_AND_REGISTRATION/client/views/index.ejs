@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="mainContainer">
+        <div id="header">
+            <div class="left">
+                <ul>
+                    <li><h4>MongoDB: Advanced: Assignment 01: Login and Registration Index</h4></li>
+                </ul>
+            </div>
+            <div class="right"></div>
+        </div>
+        <hr>
+        <div id="body">
+        <br><br>
+            <div class="left">
+                <h3>Registration:</h3>
+                <form action="/registration" method="post">
+                    <label for="firstName">First Name:</label>
+                    <input class="inputTextLeft" type="text" name="firstName">
+                    
+                    <label for="lastName">Last Name:</label>
+                    <input class="inputTextLeft" type="text" name="lastName">
+                    
+                    <label for="userName">Username:</label>
+                    <input class="inputTextLeft" type="text" name="userName">
+                    
+                    <label for="email">Email:</label>
+                    <input class="inputTextLeft" type="text" name="email">
+                    
+                    <label for="password">Password:</label>
+                    <input class="inputTextLeft" type="text" name="password">
+                    
+                    <label for="passwordConfirmation">Password Confirmation:</label>
+                    <input class="inputTextLeft" type="text" name="passwordConfirmation">
+                    
+                    <div class="btn-left">
+                        <input class="btnSubmit btnGreen" type="submit" value="Register">
+                    </div>
+                </form>
+            </div>
+            <div class="right">
+                <h3>Login:</h3>
+                <form action="/login" method="post">
+                    <label for="email">Email:</label>
+                    <input class="inputTextLeft" type="text" name="email">
+                    <label for="password">Password:</label>
+                    <input class="inputTextLeft" type="text" name="password">
+                    <div class="btn-left">
+                        <input class="btnSubmit btnGreen" type="submit" value="Login">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div id="foot">
+        </div>
+    </div>
+</body>
+
+</html>

@@ -55,6 +55,9 @@ var chalk = require("chalk");
 var moment = require("moment");
 // bcrypt
 var bcrypt = require("bcrypt");
+// session
+var session = require("express-session");
+app.use(session({ secret: "thisIsASecret "}));
 // static
 app.use(express.static(path.join(__dirname, "./client/static")));
 // views
@@ -130,6 +133,8 @@ app.post("/registration", function(req, res){
           user.update({_id: mostRecentUser._id}, mostRecentUser, function(err, bcryptPassForUpdate){
             if(err){ console.log(err); }
           });
+          let currentUserId = mostRecentUser._id;
+          req.session.currentUserId = currentUserId;
           console.log("ADD USER ROUTE, USER ADDED TO DB, USER ID IN SESSION");
           res.redirect("/dashboard");
         }
@@ -156,7 +161,15 @@ app.get("/dashboard", function(req, res){
       console.log(err);
     } else {
       // console.log(allUsers);
-      res.render("dashboard", { allUsers: allUsers });
+      let currentUserId = req.session.currentUserId;
+      user.findOne({ _id: currentUserId }, function(err, currentUserObj){
+        if(err){ console.log(err); }
+        else{
+          // add currentUserObj
+          console.log(currentUserObj);
+          res.render("dashboard", { allUsers: allUsers, currentUserObj: currentUserObj });
+        }
+      });
     }
   });
 });

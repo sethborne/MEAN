@@ -15,32 +15,67 @@
                     <li><h4>MongoDB: Advanced: Assignment 01: Login and Registration Index</h4></li>
                 </ul>
             </div>
-            <div class="right"></div>
+            <div class="right">
+                <ul>
+                    <li><a href="/"><h4>Reset</h4></a></li>
+                </ul>
+            </div>
         </div>
         <hr>
         <div id="body">
         <br><br>
             <div class="left">
+                <% if(typeof(errors) != "undefined") { %>
+                    <% for(var err in errors) { %>
+                        <p class="errors"><%= errors[err].message %></p>
+                    <% } %>
+                <% } %>
+                <% if( typeof(passwordError) != "undefined" ) { %>
+                    <p class="errors"><%= passwordError %></p>
+                <% } %>
                 <h3>Registration:</h3>
                 <form action="/registration" method="post">
                     <label for="firstName">First Name:</label>
-                    <input class="inputTextLeft" type="text" name="firstName">
+                    <% if(typeof(userInfo) != "undefined") { %>
+                        <input class="inputTextLeft" type="text" name="firstName" value="<%= userInfo.firstName %>">
+                    <% } else { %>
+                        <input class="inputTextLeft" type="text" name="firstName">
+                    <% } %>
                     
                     <label for="lastName">Last Name:</label>
-                    <input class="inputTextLeft" type="text" name="lastName">
+                    <% if(typeof(userInfo) != "undefined") { %>
+                        <input class="inputTextLeft" type="text" name="lastName" value="<%= userInfo.lastName %>">
+                    <% } else { %>
+                        <input class="inputTextLeft" type="text" name="lastName">
+                    <% } %>
                     
                     <label for="userName">Username:</label>
-                    <input class="inputTextLeft" type="text" name="userName">
+                    <% if(typeof(userInfo) != "undefined") { %>
+                        <input class="inputTextLeft" type="text" name="userName" value="<%= userInfo.userName %>">
+                    <% } else { %>
+                        <input class="inputTextLeft" type="text" name="userName">
+                    <% } %>
                     
                     <label for="email">Email:</label>
-                    <input class="inputTextLeft" type="text" name="email">
+                    <% if(typeof(userInfo) != "undefined") { %>
+                        <input class="inputTextLeft" type="text" name="email" value="<%= userInfo.email %>">
+                    <% } else { %>
+                        <input class="inputTextLeft" type="text" name="email">
+                    <% } %>
                     
                     <label for="password">Password:</label>
-                    <input class="inputTextLeft" type="text" name="password">
+                    <% if(typeof(userInfo) != "undefined") { %>
+                        <input class="inputTextLeft" type="text" name="password" value="<%= userInfo.password %>">
+                    <% } else { %>
+                        <input class="inputTextLeft" type="text" name="password">
+                    <% } %>
                     
                     <label for="passwordConfirmation">Password Confirmation:</label>
+                    <% if(typeof(userInfo) != "undefined") { %>
+                        <input class="inputTextLeft" type="text" name="passwordConfirmation" value="<%= userInfo.passwordConfirmation %>">
+                    <% } else { %>
                     <input class="inputTextLeft" type="text" name="passwordConfirmation">
-                    
+                    <% } %>
                     <div class="btn-left">
                         <input class="btnSubmit btnGreen" type="submit" value="Register">
                     </div>

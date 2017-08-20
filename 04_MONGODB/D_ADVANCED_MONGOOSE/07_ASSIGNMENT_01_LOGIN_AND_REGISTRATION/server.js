@@ -13,17 +13,28 @@ mongoose.connect("mongodb://localhost/04_D_07_Assignment_01_Login_Registration")
 var UserSchema = new mongoose.Schema({
   firstName: { type: String, required: [true, "Please Enter a First Name"], minlength: [ 2, "Please Enter a First Name Of 2 or More Characters." ],
   maxlength: [ 50, "Please Enter a First Name Under 50 Characters." ] },
+  
   lastName: { type: String, required: [true, "Please Enter a Last Name"], minlength: [ 2, "Please Enter a Last Name Of 2 or More Characters." ],
   maxlength: [ 50, "Please Enter a Last Name Under 50 Characters." ] },
-  userName: { type: String, required: [true, "Please Enter a Username"], minlength: [ 4, "Please Enter a User Name Of 4 or More Characters." ],
-  maxlength: [ 50, "Please Enter a User Name Under 50 Characters." ] },
-  email: { type: String, required: [true, "Please Enter an Email"], validate: { validator: function(email){
+  
+  userName: { type: String, unique: [true, "Username Already in Use, Please enter A Different Username"], required: [true, "Please Enter a Username"], minlength: [ 4, "Please Enter a User Name Of 4 or More Characters." ],
+  maxlength: [ 50, "Please Enter a User Name Under 50 Characters." ],
+  validate: { validator: function(email){
+      var emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+      return !(emailRegex.test(email));
+      },
+      message: "Username Can not be an Email Address"
+    } 
+  },
+  
+  email: { type: String, unique: [true, "Email Address Already in Use, Please enter A Different Email"], required: [true, "Please Enter an Email"], validate: { validator: function(email){
       var emailRegex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
       return emailRegex.test(email);
       },
       message: "Email is not a Valid Format, Please Try Again"
     } 
   },
+  
   password: { type: String, required: [true, "Please Enter a Password"], minlength: [ 8, "Please Enter a Password Of 8 or More Characters." ]}
   
 }, { timestamps: true });
@@ -56,14 +67,6 @@ app.get("/", function(req, res){
   res.render("index");
 });
 
-// post route - login
-app.post("/login", function(req, res){
-  console.log("PASS LOGIN");
-  console.log(req.body);
-  //find one, if user exists then check password
-  res.redirect("/dashboard");
-});
-
 // post route - registration
 app.post("/registration", function(req, res){
   console.log('PASS REGISTRATION');
@@ -93,8 +96,25 @@ app.post("/registration", function(req, res){
     // check that there are no errors based on validations
     else if(err){
       console.log("ADD USER IF = ERRORS: " + err);
-      var passwordNotMatch;
-      res.render("index", { title: "Errors On Registration", errors: addUser.errors, userInfo: userInfo})
+      // console.log(err);
+      if(err.code == 11000){
+        // console.log(chalk.white.bgRed(" ERROR HERE "));
+        var evalString = err.errmsg;
+        if(evalString.includes(req.body.userName)){
+          // console.log("ERROR WITH DUPLICATE USERNAME");
+          var errorUsernameDuplicate = "Username Already Registered.  Please Enter Unique Username."
+        };
+        if(evalString.includes(req.body.email)){
+          // console.log("ERROR WITH DUPLICATE EMAIL");
+          var errorEmailDupliate = "Email Already Registered.  Please Enter Unique Email Address"
+        };
+        // render page with errors for unique username or email
+        res.render("index", { title: "Errors On Registration", errors: addUser.errors, userInfo: userInfo, errorEmailDupliate: errorEmailDupliate, errorUsernameDuplicate: errorUsernameDuplicate})
+      }
+      else {
+        // render page with standard errors
+        res.render("index", { title: "Errors On Registration", errors: addUser.errors, userInfo: userInfo})
+      }
     }
     else if(user){
       user.findOne().sort({createdAt: -1}).exec(function(err, mostRecentUser){
@@ -106,11 +126,11 @@ app.post("/registration", function(req, res){
         else {
           var bcryptPassword = bcrypt.hashSync(mostRecentUser.password, bcrypt.genSaltSync(8));
           mostRecentUser.password = bcryptPassword;
-          // console.log(mostRecentUser._id);
+          // pull most recent user added, encrypt password and save
           user.update({_id: mostRecentUser._id}, mostRecentUser, function(err, bcryptPassForUpdate){
             if(err){ console.log(err); }
           });
-          console.log("ADD USER - POST NO ERRORS, ADDED");
+          console.log("ADD USER ROUTE, USER ADDED TO DB, USER ID IN SESSION");
           res.redirect("/dashboard");
         }
       });
@@ -119,6 +139,14 @@ app.post("/registration", function(req, res){
     else {
     }
   });
+});
+
+// post route - login
+app.post("/login", function(req, res){
+  console.log("PASS LOGIN");
+  console.log(req.body);
+  //find one, if user exists then check password
+  res.redirect("/dashboard");
 });
 
 // get route - dashboard

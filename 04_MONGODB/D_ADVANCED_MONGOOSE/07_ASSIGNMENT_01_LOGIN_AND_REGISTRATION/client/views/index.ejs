@@ -33,6 +33,12 @@
                 <% if( typeof(passwordError) != "undefined" ) { %>
                     <p class="errors"><%= passwordError %></p>
                 <% } %>
+                <% if( typeof(errorEmailDupliate) != "undefined" ) { %>
+                    <p class="errors"><%= errorEmailDupliate %></p>
+                <% } %>
+                <% if( typeof(errorUsernameDuplicate) != "undefined" ) { %>
+                    <p class="errors"><%= errorUsernameDuplicate %></p>
+                <% } %>
                 <h3>Registration:</h3>
                 <form action="/registration" method="post">
                     <label for="firstName">First Name:</label>

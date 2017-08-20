@@ -151,7 +151,16 @@ app.post("/login", function(req, res){
   console.log("PASS LOGIN");
   console.log(req.body);
   //find one, if user exists then check password
-  res.redirect("/dashboard");
+  user.findOne({ email: req.body.email }, function(err, loginUser){
+    if(err){ console.log(err); }
+    else {
+      let currentUserId = loginUser._id;
+      req.session.currentUserId = currentUserId;
+      console.log(currentUserId);
+      console.log("Email Exists");
+      res.redirect("/dashboard");
+    };
+  });
 });
 
 // get route - dashboard

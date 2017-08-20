@@ -20,7 +20,32 @@
         <hr>
         <div id='body'>
         <br><br>
-            <h3>Dashboard</h3>
+            <h3>All Users</h3>
+            <table cellpadding="0" cellspacing ="0">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (typeof(allUsers) != "undefined") { %>
+                        <% for(var user in allUsers) { %>
+                            <tr>
+                                <td class="center"><%= allUsers[user]._id %></td>
+                                <td class="center"><%= allUsers[user].firstName %> <%= allUsers[user].lastName %></td>
+                                <td class="center"><%= allUsers[user].userName %></td>
+                                <td class="center"><%= allUsers[user].email %></td>
+                                <td class="center"><a href="/delete/<%= allUsers[user]._id %>">Remove</a></td>
+                            </tr>
+                            
+                        <% } %>
+                    <% } %>
+                </tbody>
+            </table>
         </div>
         <div id='foot'>
         </div>

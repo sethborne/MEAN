@@ -69,6 +69,11 @@ app.post("/registration", function(req, res){
   console.log('PASS REGISTRATION');
   console.log(req.body);
   //save user minus passwordConfirm
+  
+  // if(!(bcrypt.compareSync(bcryptPassword, req.body.passwordConfirmation))){
+  //   console.log('Evaluates to False');
+  // };
+  
   var addUser = new User({
     firstName: req.body.firstName, 
     lastName: req.body.lastName, 
@@ -91,24 +96,50 @@ app.post("/registration", function(req, res){
       var passwordNotMatch;
       res.render("index", { title: "Errors On Registration", errors: addUser.errors, userInfo: userInfo})
     }
+    else if(user){
+      user.findOne().sort({createdAt: -1}).exec(function(err, mostRecentUser){
+        console.log(chalk.white.bgBlue('FIND ONE'));
+        console.log(mostRecentUser);
+        if(err){
+          console.log(err);
+        }
+        else {
+          var bcryptPassword = bcrypt.hashSync(mostRecentUser.password, bcrypt.genSaltSync(8));
+          mostRecentUser.password = bcryptPassword;
+          // console.log(mostRecentUser._id);
+          user.update({_id: mostRecentUser._id}, mostRecentUser, function(err, bcryptPassForUpdate){
+            if(err){ console.log(err); }
+          });
+          console.log("ADD USER - POST NO ERRORS, ADDED");
+          res.redirect("/dashboard");
+        }
+      });
+    }
     // password good, no errors, bcrypt password and then save into session
-    else{
-      // if no errors, bcrypt the password
-      // if(req.body.password){
-        var bcryptPassword = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(8));
-      // }
-      console.log(bcryptPassword);
-      req.body.password = bcryptPassword;
-      console.log(req.body);
-      console.log("ADD USER - POST NO ERRORS, ADDED");
-      res.redirect("/dashboard");
+    else {
     }
   });
 });
 
 // get route - dashboard
 app.get("/dashboard", function(req, res){
-  res.render("dashboard");
+  user.find({}, function(err, allUsers){
+    if(err){
+      console.log(err);
+    } else {
+      // console.log(allUsers);
+      res.render("dashboard", { allUsers: allUsers });
+    }
+  });
+});
+
+app.get("/delete/:id", function(req, res){
+  user.remove({ _id: req.params.id }, function(err, userToDelete){
+    if(err){ console.log(err);}
+    else{
+      res.redirect("/dashboard");
+    }
+  });
 });
 
 // port call

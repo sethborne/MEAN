@@ -207,31 +207,44 @@ app.post("/login", function(req, res){
 
 // get route - dashboard
 app.get("/dashboard", function(req, res){
-  user.find({}, function(err, allUsers){
-    if(err){
-      console.log(err);
-    } else {
-      // console.log(allUsers);
-      let currentUserId = req.session.currentUserId;
-      user.findOne({ _id: currentUserId }, function(err, currentUserObj){
-        if(err){ console.log(err); }
-        else{
-          // add currentUserObj
-          console.log(currentUserObj);
-          res.render("dashboard", { allUsers: allUsers, currentUserObj: currentUserObj });
-        }
-      });
-    }
-  });
+  //if there isn't a session with currentUserId, redirect to index
+  if(!req.session.currentUserId){
+    console.log("NO SESSION");
+    res.redirect("/");
+  }
+  else{
+    user.find({}, function(err, allUsers){
+      if(err){
+        console.log(err);
+      } else {
+        // console.log(allUsers);
+        let currentUserId = req.session.currentUserId;
+        user.findOne({ _id: currentUserId }, function(err, currentUserObj){
+          if(err){ console.log(err); }
+          else{
+            // add currentUserObj
+            console.log(currentUserObj);
+            res.render("dashboard", { allUsers: allUsers, currentUserObj: currentUserObj });
+          }
+        });
+      }
+    });
+  }
 });
 
 app.get("/delete/:id", function(req, res){
-  user.remove({ _id: req.params.id }, function(err, userToDelete){
-    if(err){ console.log(err);}
-    else{
-      res.redirect("/dashboard");
-    }
-  });
+  if(!req.session.currentUserId){
+    console.log("NO SESSION");
+    res.redirect("/");
+  }
+  else {
+    user.remove({ _id: req.params.id }, function(err, userToDelete){
+      if(err){ console.log(err);}
+      else{
+        res.redirect("/dashboard");
+      }
+    });
+  }
 });
 
 app.get("/logout", function(req, res){

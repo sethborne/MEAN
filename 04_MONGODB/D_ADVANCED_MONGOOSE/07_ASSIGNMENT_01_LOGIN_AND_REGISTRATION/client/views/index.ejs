@@ -17,7 +17,7 @@
             </div>
             <div class="right">
                 <ul>
-                    <li><a href="/"><h4>Reset</h4></a></li>
+                    <li><a href="/"><h4>Reset To Base Route</h4></a></li>
                 </ul>
             </div>
         </div>
@@ -88,12 +88,37 @@
                 </form>
             </div>
             <div class="right">
+                <% if(typeof(errors) != "undefined") { %>
+                    <% for(var err in errors) { %>
+                        <p class="errors"><%= errors[err].message %></p>
+                    <% } %>
+                <% } %>
+                <% if( typeof(errorBothInputEmpty) != "undefined" ) { %>
+                    <p class="errors"><%= errorBothInputEmpty %></p>
+                <% } %>
+                <% if( typeof(errorOneInputEmpty) != "undefined" ) { %>
+                    <p class="errors"><%= errorOneInputEmpty %></p>
+                <% } %>
+                <% if( typeof(errorNoUserFound) != "undefined" ) { %>
+                    <p class="errors"><%= errorNoUserFound %></p>
+                <% } %>
+                <% if( typeof(errorInvalidLoginCreds) != "undefined" ) { %>
+                    <p class="errors"><%= errorInvalidLoginCreds %></p>
+                <% } %>
                 <h3>Login:</h3>
                 <form action="/login" method="post">
                     <label for="email">Email:</label>
-                    <input class="inputTextLeft" type="text" name="email">
+                    <% if(typeof(userInfoLogin) != "undefined") { %>
+                        <input class="inputTextLeft" type="text" name="email" value="<%= userInfoLogin.email %>">
+                    <% } else { %>
+                        <input class="inputTextLeft" type="text" name="email">
+                    <% } %>
                     <label for="password">Password:</label>
-                    <input class="inputTextLeft" type="text" name="password">
+                    <% if(typeof(userInfoLogin) != "undefined") { %>
+                        <input class="inputTextLeft" type="text" name="password" value="<%= userInfoLogin.password %>">
+                    <% } else { %>
+                        <input class="inputTextLeft" type="text" name="password">
+                    <% } %>
                     <div class="btn-left">
                         <input class="btnSubmit btnGreen" type="submit" value="Login">
                     </div>

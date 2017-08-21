@@ -150,17 +150,59 @@ app.post("/registration", function(req, res){
 app.post("/login", function(req, res){
   console.log("PASS LOGIN");
   console.log(req.body);
-  //find one, if user exists then check password
-  user.findOne({ email: req.body.email }, function(err, loginUser){
-    if(err){ console.log(err); }
-    else {
-      let currentUserId = loginUser._id;
-      req.session.currentUserId = currentUserId;
-      console.log(currentUserId);
-      console.log("Email Exists");
-      res.redirect("/dashboard");
-    };
-  });
+  // for the FE forms
+  var userInfoLogin = req.body;
+  // if both empty
+  if(req.body.email == "" && req.body.password == ""){
+    var errorBothInputEmpty = "Both Login Fields Are Blank.  Please Fix and Resumbit."
+    res.render("index", { errorBothInputEmpty: errorBothInputEmpty });
+  }
+  else {
+    // if one empty
+    if(req.body.email == "" || req.body.password == ""){
+      console.log("INPUT INVALID");
+      if(req.body.email == ""){
+        var errorOneInputEmpty = "Login Email is Empty - Please Resubmit"
+      }
+      if(req.body.password == ""){
+        var errorOneInputEmpty = "Login Password is Empty - Please Resubmit"
+      }
+      console.log(userInfoLogin);
+      res.render("index", { errorOneInputEmpty: errorOneInputEmpty, userInfoLogin: userInfoLogin});
+    }
+    else{
+      //find one, if user exists then check password
+      user.findOne({ email: req.body.email }, function(err, loginUser){
+        if(err){ 
+          console.log(err);
+        }
+        else if(loginUser == null){
+          var errorNoUserFound = "Login Email Not Found";
+          res.render("index", { errorNoUserFound: errorNoUserFound, userInfoLogin: userInfoLogin})
+        }
+        else {
+          var bcryptPasswordLogin = req.body.password;
+          var passwordGood = bcrypt.compareSync(bcryptPasswordLogin, loginUser.password);
+          console.log(passwordGood);
+          if(passwordGood == false){
+            console.log(chalk.white.bgRed("User Password Is Invalid"));
+            var errorInvalidLoginCreds = "Invalid Login Credentials.  Please Try Again.";
+            res.render("index", { errorInvalidLoginCreds: errorInvalidLoginCreds, userInfoLogin: userInfoLogin });
+          }
+          else {
+            console.log("Login User Is: ");
+            console.log(loginUser);
+            let currentUserId = loginUser._id;
+            req.session.currentUserId = currentUserId;
+            // req.password.
+            console.log(currentUserId);
+            // console.log("Email Exists");
+            res.redirect("/dashboard");
+          }
+        };
+      });
+    }
+  }
 });
 
 // get route - dashboard
@@ -190,6 +232,11 @@ app.get("/delete/:id", function(req, res){
       res.redirect("/dashboard");
     }
   });
+});
+
+app.get("/logout", function(req, res){
+  req.session.destroy();
+  res.redirect("/");
 });
 
 // port call

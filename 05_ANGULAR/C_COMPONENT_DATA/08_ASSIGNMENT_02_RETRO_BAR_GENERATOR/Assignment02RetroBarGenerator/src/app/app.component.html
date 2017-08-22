@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="mainContainer">
+    <div id="header">
+      <div class="left">
+        <ul>
+          <li><h4>Angular: Component Data: Assignment 02 - Retro Bar Generator: Index</h4></li>
+        </ul>
+      </div>
+      <div class="right"></div>
+    </div>
+    <hr>
+    <div id="body">
+      <div class="dojoSurvey seventy">
+        <h1>Retro Bar Generator</h1>
+        <p>{{numberOfTiles}}</p>
+        <div class="colorTile whiteText" *ngFor="let color of finalArrayOfColors" [ngStyle]="{'background-color': color}">
+          <div id="textBlock">
+            <p id="whiteText">{{color}}</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div id="foot">
+    </div>
+  </div>

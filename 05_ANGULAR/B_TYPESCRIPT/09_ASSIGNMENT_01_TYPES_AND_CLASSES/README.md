@@ -46,9 +46,9 @@
     --myObj = { name:'Bill'};
     --anythingVariable = "Hey";
     --anythingVariable = 25; 
-    arrayOne = [true, false, true, true]; 
-    arrayTwo = [1, 'abc', true, 2];
-    myObj = { x: 5, y: 10 };
+    --arrayOne = [true, false, true, true]; 
+    --arrayTwo = [1, 'abc', true, 2];
+    --myObj = { x: 5, y: 10 };
 ```
 
 *class?*

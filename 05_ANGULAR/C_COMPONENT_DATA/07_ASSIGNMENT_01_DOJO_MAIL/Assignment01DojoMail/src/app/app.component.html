@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="mainContainer">
+  <div id="header">
+    <div class="left">
+      <ul>
+        <li><h4>Angular: Component Data: Assignment 01 - Dojo Mail - Index</h4></li>
+      </ul>
+    </div>
+    <div class="right"></div>
+  </div>
+  <hr>
+  <div id="body">
+    <div class="dojoSurvey seventy">
+      <h1>Dojo Mail</h1>
+      <table cellspacing="0" cellpadding="0">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Importance</th>
+            <th>Subject</th>
+            <th>Content</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let idx of emailList">
+            <td class="center">{{idx.email}}</td>
+            <!-- broken into separate if and else statements -->
+            <!-- <td class="center" *ngIf="idx.importance==true">High</td> -->
+            <!-- <td class="center" *ngIf="!idx.importance==true">Low</td> -->
+
+            <!-- using if/else statement -->
+            <td class="center" *ngIf="idx.importance==true;else isfalse">High</td>
+            <ng-template #isfalse><td class="center">Low</td></ng-template>
+            <td>{{idx.subject}}</td>
+            <td>{{idx.content}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div>
+    </div>
+  </div>
+  <div id="foot">
+    <script>
+      console.log(emailList);
+    </script>
+  </div>
+</div>
+

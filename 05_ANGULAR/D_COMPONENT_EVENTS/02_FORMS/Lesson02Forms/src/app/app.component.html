@@ -1,0 +1,36 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="mainContainer">
+    <div id="header">
+      <div class="left">
+        <ul>
+          <li><h4>Angular: Component Event: Assignment 02 - Forms: Index</h4></li>
+        </ul>
+      </div>
+      <div class="right"></div>
+    </div>
+    <hr>
+    <div id="body">
+      <div class="dojoSurvey seventy">
+        <h1>Forms</h1>
+        <form (submit)="onSubmit()">
+          <label for="firstName">First Name:</label>
+          <!-- two way binding HAVE TO HAVE THE NAME PROPERTY!!!! -->
+          <input class="inputTextLeft" type="text" name="firstName" [(ngModel)]="user.firstName">
+          <!-- two way with event -->
+          <!-- <input class="inputTextLeft" type="text" name="firstName" (change)='user.firstName = $event.target.value' [value]='user.firstName'> -->
+          <!-- one way binding -->
+          <!-- <input class="inputTextLeft" type="text" name="firstName" [value] = 'user.firstName'> -->
+          <label for="lastName">Last Name:</label>
+          <input class="inputTextLeft" type="text" name="lastName" [(ngModel)]="user.lastName">
+          <div class="btn-left">
+            <input class="btnSubmit btnGreen" type="submit" value="Submit Form">
+          </div>
+        </form>
+        <br>
+        {{ user | json }}
+      </div>
+
+    </div>
+    <div id="foot">
+    </div>
+</div>

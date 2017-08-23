@@ -1,0 +1,74 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="mainContainer">
+  <div id="header">
+    <div class="left">
+      <ul>
+        <li><h4>Angular: Component Event: Assignment 03 - Forms Validations: Index</h4></li>
+      </ul>
+    </div>
+    <div class="right"></div>
+  </div>
+  <hr>
+  <div id="body">
+    <div class="dojoSurvey seventy">
+      <h1>Forms</h1>
+      <form (submit)="onSubmit()">
+        <p class="errors"
+          *ngIf="firstName.errors"
+        >{{ firstName.errors | json }} {{ firstName.valid | json }}</p>
+        <label for="firstName">First Name:</label>
+        <input class="inputTextLeft" type="text" name="firstName"
+          required
+          minlength="2"
+          maxlength="40"
+          [(ngModel)]="user.firstName"
+          #firstName="ngModel">
+        <p class="errors"
+          *ngIf="lastName.errors"
+          >{{ lastName.errors | json }} {{ lastName.valid | json }}</p>
+        <label for="lastName">Last Name:</label>
+        <input class="inputTextLeft" type="text" name="lastName"
+          required
+          minlength="2"
+          maxlength="40"
+          [(ngModel)]="user.lastName"
+          #lastName="ngModel">
+        <p class="errors"
+          *ngIf="userName.errors"
+        >{{ userName.errors | json }} {{ userName.valid | json }}</p>
+        <label for="userName" >Username:</label>
+        <input class="inputTextLeft" type="text" name="userName"
+          minlength="4"
+          maxlength="40"
+          [(ngModel)]="user.userName"
+          #userName="ngModel">
+        <p class="errors"
+          *ngIf="email.errors"
+        >{{ email.errors | json }} {{ email.valid | json }}</p>
+        <label for="email">Email:</label>
+        <input class="inputTextLeft" type="text" name="email"
+          required
+          pattern = ^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$
+          [(ngModel)]="user.email"
+          #email="ngModel">
+        <p class="errors"
+          *ngIf="password.errors"
+        >{{ password.errors | json }} {{ password.valid | json }}</p>
+        <label for="password">Password:</label>
+        <input class="inputTextLeft" type="text" name="password"
+          required
+          minlength="8"
+          maxlength="24"
+          [(ngModel)]="user.password"
+          #password="ngModel">
+        <div class="btn-left">
+          <input class="btnSubmit btnGreen" type="submit" value="Submit Form">
+        </div>
+      </form>
+      <br>
+    </div>
+
+  </div>
+  <div id="foot">
+  </div>
+</div>

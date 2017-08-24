@@ -1,0 +1,39 @@
+#mainContainer .btnSubmit {
+  margin: 20px 0px 0px 0px;
+}
+
+#mainContainer .btnSubmit {
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 10pt;
+  border: 1px solid black;
+}
+
+#mainContainer .btnSubmit:not(:first-child) {
+  margin-left: 20px;
+}
+
+#mainContainer .btnGreen {
+  border: 1.5px solid green;
+  color: white;
+  background: green;
+}
+
+#mainContainer .btnGreenActive {
+  padding: 10px 20px 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-size: 10pt;
+  border: 1px solid green;
+  color: white;
+  background: green;
+}
+
+#mainContainer .btnGreenActive:not(:first-child) {
+  margin-left: 20px;
+}

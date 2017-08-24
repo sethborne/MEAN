@@ -1,0 +1,49 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="mainContainer">
+  <div id="header">
+    <div class="left">
+      <ul>
+        <li><h4>Angular: Component Event: Assignment 01 - US Time Zone Display: Index</h4></li>
+      </ul>
+    </div>
+    <div class="right"></div>
+  </div>
+  <hr>
+  <div id="body">
+    <div class="dojoSurvey seventy">
+      <h1 class="center">US Time Zone Display</h1>
+      <br>
+      <!-- <div class="btn-center">
+          <input [ngClass]="{'btnSubmit': btnSubmitBol, 'btnGreen': btnGreenBol, 'btnGreenActive': btnGreenActiveBol}" type="button" value="PDT" (click)="getDateNow(-7)">
+
+          <input [ngClass]="{'btnSubmit': btnSubmitBol, 'btnGreen': btnGreenBol, 'btnGreenActive': btnGreenActiveBol}" type="button" value="MDT" (click)="getDateNow(-6)">
+
+          <input [ngClass]="{'btnSubmit': btnSubmitBol, 'btnGreen': btnGreenBol, 'btnGreenActive': btnGreenActiveBol}" type="button" value="CDT" (click)="getDateNow(-5)">
+
+          <input [ngClass]="{'btnSubmit': btnSubmitBol, 'btnGreen': btnGreenBol, 'btnGreenActive': btnGreenActiveBol}" type="button" value="EDT" (click)="getDateNow(-4)">
+        </div>
+      <br><br> -->
+      <div class="btn-center">
+        <input [ngClass]="{ 'btnSubmit': btnSubmitBol, 'btnGreenActive': btnGreenActiveBol == -7 }" type="button" value="PDT" (click)="getCurrDateTime(-7)">
+
+        <input [ngClass]="{ 'btnSubmit': btnSubmitBol, 'btnGreenActive': btnGreenActiveBol == -6 }" type="button" value="MDT" (click)="getCurrDateTime(-6)">
+
+        <input [ngClass]="{ 'btnSubmit': btnSubmitBol, 'btnGreenActive': btnGreenActiveBol == -5 }" type="button" value="CDT" (click)="getCurrDateTime(-5)">
+
+        <input [ngClass]="{ 'btnSubmit': btnSubmitBol, 'btnGreenActive': btnGreenActiveBol == -4 }" type="button" value="EDT" (click)="getCurrDateTime(-4)">
+
+        <input [ngClass]="{ 'btnSubmit': btnSubmitBol, 'btnGreenActive': btnGreenActiveBol == 0 }" type="button" value="Clear" (click)="getCurrDateTime(0)">
+      </div>
+      <br><br>
+      <!-- <h2 class="center">{{ currDate }}</h2> -->
+      <h2 class="center">{{ currDate2 | date:'medium' }}</h2>
+      <br>
+    </div>
+
+  </div>
+  <div id="foot">
+  </div>
+</div>
+
+
+

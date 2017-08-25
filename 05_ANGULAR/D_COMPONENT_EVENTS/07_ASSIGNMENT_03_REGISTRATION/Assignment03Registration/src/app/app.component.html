@@ -1,0 +1,167 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="mainContainer">
+    <div id="header">
+      <div class="left">
+        <ul>
+          <li><h4>Angular: Component Event: Assignment 03 - Registration Form: Index</h4></li>
+        </ul>
+      </div>
+      <div class="right"></div>
+    </div>
+    <hr>
+    <div id="body">
+      <div class="dojoSurvey seventy">
+        <div class="left">
+          <h1 class="left">Registration</h1>
+
+          <form #userForm = "ngForm" (ngSubmit)="onFormSubmit(userForm)">
+          <fieldset>
+            <h2>Account Information</h2>
+            <!-- firstName -->
+            <!-- <span class="errors" *ngIf="displayErrors"> -->
+            <span class="errors">
+              <span *ngIf="firstName.invalid && ( firstName.dirty || firstName.untouched )">
+                <span *ngIf="firstName.errors.required">
+                  First Name is Required.
+                </span>
+                <span *ngIf="firstName.errors.minlength">
+                  <!-- {{ firstName.errors | json }} -->
+                  Must be at least {{ firstName.errors.minlength.requiredLength }} Characters Long.
+                </span>
+              </span>
+            </span>
+            <label for="firstName">First Name:</label>
+            <input id="firstName" class="inputTextLeft" type="text" name="firstName"
+              required
+              minlength="2"
+              maxlength="40"
+              [(ngModel)]="user.firstName"
+              #firstName = "ngModel">
+            <!-- TODO: remove: {{ user.firstname }} -->
+            <!-- lastName -->
+            <span class="errors">
+              <span *ngIf="lastName.invalid && ( lastName.dirty || lastName.untouched )">
+                <span *ngIf="lastName.errors.required">
+                  Last Name is Required.
+                </span>
+                <span *ngIf="lastName.errors.minlength">
+                    <!-- {{ firstName.errors | json }} -->
+                  Must be at least {{ lastName.errors.minlength.requiredLength }} Characters Long.
+                </span>
+              </span>
+            </span>
+            <label for="lastName">Last Name:</label>
+            <input id="lastName" class="inputTextLeft" type="text" name="lastName"
+              required
+              minlength="2"
+              maxlength="40"
+              [(ngModel)]="user.lastName"
+              #lastName = "ngModel">
+            <!-- email -->
+            <span class="errors">
+              <span *ngIf="email.invalid && ( email.dirty || email.untouched )">
+                <span *ngIf="email.errors.required">
+                  Email is Required.
+                </span>
+                <span *ngIf="email.errors.pattern">
+                  Must be a Valid Email Format.
+                </span>
+              </span>
+            </span>
+            <label for="email">Email:</label>
+            <input id="email" class="inputTextLeft" type="text" name="email"
+              required
+              pattern = ^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$
+              [(ngModel)]="user.email"
+              #email="ngModel">
+            <!-- password -->
+            <span class="errors">
+              <span *ngIf="password.invalid && ( password.dirty || password.untouched )">
+                <span *ngIf="password.errors.required">
+                  Password is Required.
+                </span>
+                <span *ngIf="password.errors.minlength">
+                  Password much be at least {{ password.errors.minlength.requiredLength }} Characters Long: ( {{ password.errors.minlength.actualLength }} of {{ password.errors.minlength.requiredLength }} )
+                </span>
+              </span>
+            </span>
+            <label for="password">Password:</label>
+            <input id="password" class="inputTextLeft" type="text" name="password"
+              required
+              minlength="8"
+              maxlength="60"
+
+              [(ngModel)]="user.password"
+              #password="ngModel">
+            <!-- password confirmation -->
+            <label for="passwordConfirmation">Password Confirmation:</label>
+            <input id="passwordConfirmation" class="inputTextLeft" type="text" name="passwordConfirmation"
+              required>
+            <!-- streetAddress -->
+            <p class="errors"
+              *ngIf="streetAddress.errors"
+              >{{ streetAddress.errors | json }}</p>
+            <label for="streetAddress">Street Address:</label>
+            <input id="streetAddress" class="inputTextLeft" type="text" name="streetAddress"
+              required
+              [(ngModel)]="user.streetAddress"
+              #streetAddress="ngModel">
+            <!-- unitOrAptNumber -->
+            <p class="errors"
+              *ngIf="unitOrAptNumber.errors"
+              >{{ unitOrAptNumber.errors | json }}</p>
+            <label for="unitOrAptNumber">Unit or Apartment Number</label>
+            <input id="unitOrAptNumber" class="inputTextLeft" type="text" name="unitOrAptNumber"
+
+              [(ngModel)]="user.unitOrAptNumber"
+              #unitOrAptNumber="ngModel">
+            <!-- cityName -->
+            <p class="errors"
+              *ngIf="cityName.errors"
+              >{{ cityName.errors | json}}</p>
+            <label for="cityName">City Name:</label>
+            <input id="cityName" class="inputTextLeft" type="text" name="cityName"
+              required
+              [(ngModel)]="user.cityName"
+              #cityName="ngModel">
+            <!-- stateName -->
+            <p class="errors"
+              *ngIf="stateName.errors"
+              >{{ stateName.errors | json }}</p>
+            <label for="stateName">State:</label>
+            <select class="inputTextLeft" name="stateName"
+              required
+              [(ngModel)]="user.stateName"
+              #stateName="ngModel">
+              <option *ngFor="let state of arrayState" value="{{state[1]}}">{{state[0]}}</option>
+            </select><br>
+            <!-- feeling -->
+            <p class="errors"
+
+              >{{ feeling.errors | json }}</p>
+            <label for="feeling">I am Feeling Lucky</label><br><br>
+            <div class="left" *ngFor="let bool of arrayOfFeelings" >
+              <!-- <input id="feeling" class="inputRadio" type="radio" name="feeling" value="Yes"> Yes -->
+              <!-- <input id="feeling" class="inputRadio" type="radio" name="feeling" value="No"> No -->
+              <input id="feeling" class="inputRadio" type="radio" name="feeling" [value]=" bool "
+                required
+                [(ngModel)]="user.feeling"
+                #feeling="ngModel"
+                > {{ bool }}
+              <!-- <p *ngFor="let item of arrayOfFeelings">{{ arrayOfFeelings[item] }}</p> -->
+            </div>
+            <div class="left">
+              <input class="btnSubmit btnGreen" type="submit" name="submit">
+            </div>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+
+    </div>
+    <div id="foot">
+    </div>
+  </div>
+
+
+

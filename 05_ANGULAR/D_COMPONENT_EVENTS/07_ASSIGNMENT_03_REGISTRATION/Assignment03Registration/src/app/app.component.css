@@ -1,0 +1,7 @@
+fieldset {
+  border: none;
+}
+
+#mainContainer #body .left form span {
+  padding: 0px;
+}

@@ -1,0 +1,20 @@
+#switch {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(215, 215, 215, 1);
+  display: inline-block;
+  margin: 0;
+  line-height: 90px;
+  border: 1px solid white;
+}
+
+#toggle {
+  vertical-align: middle;
+  padding: 20px;
+  border: 1px solid white;
+  background-color: red;
+}
+
+#toggle.on {
+  background-color: green;
+}

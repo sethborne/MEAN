@@ -1,0 +1,45 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div id="mainContainer">
+  <div id="header">
+    <div class="left">
+      <ul>
+        <li><h4>Angular: Component Event: Assignment 02 - Switchboard: Index</h4></li>
+      </ul>
+    </div>
+    <div class="right"></div>
+  </div>
+  <hr>
+  <div id="body">
+    <div class="dojoSurvey seventy">
+      <h1 class="center">Switchboard</h1>
+      <br>
+      <div class="btn-center">
+        <div id="switch" *ngFor="let toggle of arrayOfSwitches; let idx = index">
+          <input id="toggle" type="button" value="ON"
+            *ngIf="toggle"
+            [ngClass]="{'on': toggle}"
+            (click)="toggleSwitch(idx)"
+          >
+          <input id="toggle" type="button" value="OFF"
+            *ngIf="!toggle"
+            [ngClass]="{'on': toggle}"
+            (click)="toggleSwitch(idx)"
+          >
+        </div>
+        <br><br><br>
+        {{ arrayOfSwitches }}
+        <br>
+        {{ lengthOfArray }}
+      </div>
+      <br><br>
+      <h2 class="center">{{ currDate2 | date:'medium' }}</h2>
+      <br>
+    </div>
+
+  </div>
+  <div id="foot">
+  </div>
+</div>
+
+
+

@@ -90,7 +90,7 @@ export class AppComponent implements OnInit{
       this.displayResult = true;
     }
     else{
-
+      console.log("WILL THIS EVER HAPPEN?")
     }
   }
 

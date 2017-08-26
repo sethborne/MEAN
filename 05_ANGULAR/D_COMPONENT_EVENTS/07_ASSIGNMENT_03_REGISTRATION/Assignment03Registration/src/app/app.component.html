@@ -10,11 +10,24 @@
     </div>
     <hr>
     <div id="body">
+      <div *ngIf="displayResult">
+        <div class="dojoSurveyGreen seventy">
+          <h2>Thank You for Registering!</h2>
+          <p>Thank you for registering with us {{ user.firstName }}!</p>
+          <p>We just sent you a confirmation email at {{ user.email }}</p>
+          <p>In Addition, we will send all mail to:</p>
+          <p>{{ user.streetAddress }}, {{ user.unitOrAptNumber }}</p>
+          <p>{{ user.cityName }}, {{ user.stateName }}</p>
+          <br>
+          <p>Have a Wonderful Day!</p>
+        </div>
+      </div>
       <div class="dojoSurvey seventy">
         <div class="left">
           <h1 class="left">Registration</h1>
 
           <form #userForm = "ngForm" (ngSubmit)="onFormSubmit(userForm)">
+            {{diagnostic}}
           <fieldset>
             <h2>Account Information</h2>
             <!-- firstName -->
@@ -94,64 +107,97 @@
               [(ngModel)]="user.password"
               #password="ngModel">
             <!-- password confirmation -->
+            <span class="errors">
+              <span *ngIf="displayPasswordErrors">
+                Passwords Must Match
+              </span>
+              <span *ngIf="passwordConfirmation.invalid && ( passwordConfirmation.dirty || passwordConfirmation.untouched )">
+                <span *ngIf="passwordConfirmation.errors.required">
+                  Password Confirmation is Required.
+                </span>
+                <span *ngIf="passwordConfirmation.errors.minlength">
+                  Password Confirmation must be at least {{ passwordConfirmation.errors.minlength.requiredLength }} Characters Long: ( {{ passwordConfirmation.errors.minlength.actualLength }} of {{ passwordConfirmation.errors.minlength.requiredLength }} )
+                </span>
+              </span>
+            </span>
             <label for="passwordConfirmation">Password Confirmation:</label>
             <input id="passwordConfirmation" class="inputTextLeft" type="text" name="passwordConfirmation"
-              required>
+              required
+              minlength="8"
+              maxlength="60"
+
+              [(ngModel)]="user.passwordConfirmation"
+              #passwordConfirmation="ngModel">
             <!-- streetAddress -->
-            <p class="errors"
-              *ngIf="streetAddress.errors"
-              >{{ streetAddress.errors | json }}</p>
+            <span class="errors">
+              <span *ngIf="streetAddress.invalid && ( streetAddress.dirty || streetAddress.untouched )">
+                <span *ngIf="streetAddress.errors.required">
+                  Street Address is Required.
+                </span>
+              </span>
+            </span>
             <label for="streetAddress">Street Address:</label>
             <input id="streetAddress" class="inputTextLeft" type="text" name="streetAddress"
               required
               [(ngModel)]="user.streetAddress"
               #streetAddress="ngModel">
             <!-- unitOrAptNumber -->
-            <p class="errors"
-              *ngIf="unitOrAptNumber.errors"
-              >{{ unitOrAptNumber.errors | json }}</p>
+            <span class="errors">
+            </span>
             <label for="unitOrAptNumber">Unit or Apartment Number</label>
             <input id="unitOrAptNumber" class="inputTextLeft" type="text" name="unitOrAptNumber"
 
               [(ngModel)]="user.unitOrAptNumber"
               #unitOrAptNumber="ngModel">
             <!-- cityName -->
-            <p class="errors"
-              *ngIf="cityName.errors"
-              >{{ cityName.errors | json}}</p>
+            <span class="errors">
+              <span *ngIf="cityName.invalid && ( cityName.dirty || cityName.untouched )">
+                <span *ngIf="cityName.errors.required">
+                  City Name is Required
+                </span>
+              </span>
+            </span>
             <label for="cityName">City Name:</label>
             <input id="cityName" class="inputTextLeft" type="text" name="cityName"
               required
+              minlength="4"
               [(ngModel)]="user.cityName"
               #cityName="ngModel">
             <!-- stateName -->
-            <p class="errors"
-              *ngIf="stateName.errors"
-              >{{ stateName.errors | json }}</p>
+            <span class="errors">
+              <span *ngIf="stateName.invalid && ( stateName.dirty || stateName.untouched )">
+                <span *ngIf="stateName.errors.required">
+                  State Name is Required.
+                </span>
+              </span>
+            </span>
             <label for="stateName">State:</label>
             <select class="inputTextLeft" name="stateName"
               required
               [(ngModel)]="user.stateName"
               #stateName="ngModel">
+              <option disabled selected ></option>
               <option *ngFor="let state of arrayState" value="{{state[1]}}">{{state[0]}}</option>
             </select><br>
             <!-- feeling -->
-            <p class="errors"
-
-              >{{ feeling.errors | json }}</p>
+            <span class="errors">
+              <span *ngIf="feeling.pristine">
+                Feeling Is Required.
+              </span>
+            </span>
             <label for="feeling">I am Feeling Lucky</label><br><br>
-            <div class="left" *ngFor="let bool of arrayOfFeelings" >
-              <!-- <input id="feeling" class="inputRadio" type="radio" name="feeling" value="Yes"> Yes -->
-              <!-- <input id="feeling" class="inputRadio" type="radio" name="feeling" value="No"> No -->
-              <input id="feeling" class="inputRadio" type="radio" name="feeling" [value]=" bool "
-                required
-                [(ngModel)]="user.feeling"
-                #feeling="ngModel"
-                > {{ bool }}
-              <!-- <p *ngFor="let item of arrayOfFeelings">{{ arrayOfFeelings[item] }}</p> -->
-            </div>
+            <input id="feeling" class="inputRadio" name="feeling" type="radio" value="Yes"
+              required
+              [(ngModel)]="user.feeling"
+              #feeling="ngModel"> Yes
+            <input id="feeling" class="inputRadio" name="feeling" type="radio" value="No"
+              required
+              [(ngModel)]="user.feeling"
+              #feeling="ngModel"> No
+            <br>
             <div class="left">
-              <input class="btnSubmit btnGreen" type="submit" name="submit">
+              <input class="btnSubmit btnGreen" type="submit" value="Submit">
+              <!-- [disabled]="!userForm.form.valid" -->
             </div>
           </fieldset>
           </form>

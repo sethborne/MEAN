@@ -7,10 +7,8 @@ import { User } from './user';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  user = new User();
-
   // Visibility Variables
-  displayErrors = true;
+
 
   arrayState: any[] = [
     ["Alabama", "AL"],
@@ -65,14 +63,31 @@ export class AppComponent implements OnInit{
     ["Wyoming", "WY"]
   ];
 
-  arrayOfFeelings: string[] = [
-    "Yes",
-    "No"
-  ];
+  // arrayOfFeelings: string[] = [
+  //   "Yes",
+  //   "No"
+  // ];
 
-  onFormSubmit(userFormData){
-    if(userFormData.valid){
+  //constructor for User
+  user: User = new User;
+  displayErrors = true;
+  displayResult = false;
+  displayPasswordErrors = false;
+  constructor(){
+
+  }
+  onFormSubmit(userForm){
+    if(userForm.valid){
+      this.displayPasswordErrors = false;
       console.log("FORM VALID");
+      console.log(this.user);
+      // this.user = userForm.form.value;
+      // console.log(this.user.feeling);
+      // console.log(this.user);
+      if(this.user.password !== this.user.passwordConfirmation){
+        this.displayPasswordErrors = true;
+      }
+      this.displayResult = true;
     }
     else{
 

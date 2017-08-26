@@ -217,6 +217,19 @@
   border: 1px solid black;
 }
 
+#mainContainer #body .dojoSurveyGreen {
+  border: 1px solid green;
+  color: green;
+}
+
+#mainContainer #body .dojoSurveyGreen p {
+  color: green;
+}
+
+#mainContainer #body .dojoSurveyRed {
+  border: 1px solid red;
+}
+
 #mainContainer #body .seventy {
   width: 70%;
   margin: 5% 5% 0 5%;

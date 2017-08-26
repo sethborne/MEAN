@@ -1,0 +1,84 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#mainContainer {
+  margin: 5% 5% 0 5%;
+  /* background-color: grey; */
+}
+
+#header {
+  width: 100%;
+  background-color: #9FC5F8;
+  margin-bottom: 5%;
+}
+
+#content {
+  height: 600px;
+}
+
+.left {
+  width: 30.825%;
+  display: inline-block;
+  background-color: #9FC5F8;
+  /* background-color: yellow; */
+  margin-right: 5%;
+  height: 100%;
+}
+
+.right {
+  width: 62.825%;
+  display: inline-block;
+  vertical-align: top;
+  background-color: #9FC5F8;
+  height: 100%;
+}
+
+#component {
+  position: absolute;
+  margin-top: .5%;
+  margin-left: .5%;
+}
+
+.headContent {
+  width: 94%;
+  padding: 3%;
+  height: 94%;
+}
+
+.navContent {
+  width: 80%;
+  height: 100%;
+  padding: 10%;
+}
+
+.link {
+  width: 100%;
+  height: 5%;
+  margin-bottom: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border: none;
+}
+
+.link:hover {
+  background-color: 9FC5F8;
+}
+
+.mainContent {
+  width: 90%;
+  padding: 5%;
+  height: 90%;
+}
+
+.border {
+  border: 2px black solid;
+}
+
+
+
+.center {
+  text-align: center;
+}

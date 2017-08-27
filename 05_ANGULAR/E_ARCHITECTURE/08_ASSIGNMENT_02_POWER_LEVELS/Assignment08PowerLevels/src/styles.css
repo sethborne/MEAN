@@ -26,19 +26,23 @@
 
 
 #mainContent .row {
+  height: 100%;
   width: 100%;
   background-color: grey;
 }
 
 .forty {
-  height: 40%;
+  height: 38%;
+  margin-bottom: 2%;
 }
 
 .thirty {
-  height: 30%;
+  height: 28%;
+  margin-bottom: 2%;
 }
 
 .thirtyWide {
+  height: 100%;
   width: 31.33%;
   display: inline-block;
   border: 2px solid black;
@@ -46,6 +50,16 @@
 
 .thirtyWide:not(:first-of-type) {
   margin: 0 0 0 2%;
+}
+
+.inset {
+  padding: 10%;
+}
+
+.appLabel {
+  font-size: 12px;
+  position: absolute;
+  margin: .75% 0 0 .75%;
 }
 
 #mainContainer .left {

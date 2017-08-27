@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.powerLeft {
+  width: 74.5%;
+  display: inline-block;
+  vertical-align: top;
+  /* margin: 2% 0 0 4%; */
+}
+
+.insetTop {
+  padding: 5% 0 0 5%;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+  margin-left: 5px;
+}
+
+.inputPower {
+  width: 35%;
+  padding: .5% .25% .5% .5%;
+  font-size: 15px;
+  text-align: right;
+}
+
+.powerRight {
+  width: 25%;
+  display: inline-block;
+}
+
+.portrait {
+  height: 100%;
+  width: 100%
+}

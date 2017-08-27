@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+// import { Power } from './power';
+// import { PowerComponent } from './power/power.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(){
+  }
+
+  dataFromAppPower(powerLevel){
+    console.log(`PowerLevel At App Level ${powerLevel}`);
+  }
 }

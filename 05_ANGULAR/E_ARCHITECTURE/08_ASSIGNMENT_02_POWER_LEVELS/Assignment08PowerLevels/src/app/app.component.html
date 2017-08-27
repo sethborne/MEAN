@@ -19,56 +19,12 @@
     <div class="forty">
       <div class="row">
         <p class="appLabel">PowerComponent</p>
-          <app-power></app-power>
+          <app-power (powerLevelEmitter)="dataFromAppPower($event)"></app-power>
       </div>
     </div>
-    <div class="thirty">
-      <div class="row">
-        <div class="thirtyWide">
-          <p class="appLabel">HumanComponent</p>
-          <div class="inset">
-            <app-human></app-human>
-          </div>
-        </div>
-        <div class="thirtyWide">
-          <p class="appLabel">SaiyanComponent</p>
-          <div class="inset">
-            <app-saiyan></app-saiyan>
-          </div>
-        </div>
-        <div class="thirtyWide">
-          <p class="appLabel">SuperSaiyanComponent</p>
-          <div class="inset">
-            <app-supersaiyan></app-supersaiyan>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="thirty">
-        <div class="row">
-          <div class="thirtyWide">
-            <p class="appLabel">SuperSaiyanTwoComponent</p>
-            <div class="inset">
-              test
-            </div>
-          </div>
-          <div class="thirtyWide">
-            <p class="appLabel">SuperSaiyanThreeComponent</p>
-            <div class="inset">
-              test
-            </div>
-          </div>
-          <div class="thirtyWide">
-            <p class="appLabel">SuperSaiyanFourComponent</p>
-            <div class="inset">
-              test
-            </div>
-          </div>
-        </div>
-      </div>
   </div>
-  <div id="foot">
-  </div>
+
+
 </div>
 
 

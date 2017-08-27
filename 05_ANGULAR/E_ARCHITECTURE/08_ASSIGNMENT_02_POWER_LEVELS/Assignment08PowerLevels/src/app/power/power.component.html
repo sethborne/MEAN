@@ -7,10 +7,56 @@
       <label for="initPowerLevel">Initial Power Level</label>
       <br>
       <br>
-      <input class="inputPower" type="number" name="initPowerLevel" step="1">
+      <input class="inputPower" type="number" [(ngModel)]="powerLevel" step="1">
+      <!-- <input type="button" value="sumbit" (click)="triggerPowerLevel(powerLevel)"> -->
     </div>
   </div>
   <div class="powerRight">
     <img class="portrait" src="../assets/img/saiyan_portrait.jpg" alt="">
   </div>
 </div>
+<div class="thirty">
+  <div class="row">
+    <div class="thirtyWide">
+      <p class="appLabel">HumanComponent</p>
+      <div class="inset">
+        <app-human [thePowerLevel]='powerLevel'></app-human>
+      </div>
+    </div>
+    <div class="thirtyWide">
+      <p class="appLabel">SaiyanComponent</p>
+      <div class="inset">
+        <app-saiyan [thePowerLevel]='powerLevel'></app-saiyan>
+      </div>
+    </div>
+    <div class="thirtyWide">
+      <p class="appLabel">SuperSaiyanComponent</p>
+      <div class="inset">
+        <app-supersaiyan [thePowerLevel]='powerLevel'></app-supersaiyan>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="thirty">
+  <div class="row">
+    <div class="thirtyWide">
+      <p class="appLabel">SuperSaiyanTwoComponent</p>
+      <div class="inset">
+          <app-superSaiyanTwo [thePowerLevel]='powerLevel'></app-superSaiyanTwo>
+      </div>
+    </div>
+    <div class="thirtyWide">
+      <p class="appLabel">SuperSaiyanThreeComponent</p>
+      <div class="inset">
+        <app-superSaiyanThree [thePowerLevel]='powerLevel'></app-superSaiyanThree>
+      </div>
+    </div>
+    <div class="thirtyWide">
+      <p class="appLabel">SuperSaiyanFourComponent</p>
+      <div class="inset">
+        <app-superSaiyanFour [thePowerLevel]='powerLevel'></app-superSaiyanFour>
+      </div>
+    </div>
+  </div>
+</div>
+

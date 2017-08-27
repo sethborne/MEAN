@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { PowerComponent } from '../../power/power.component';
 
 @Component({
   selector: 'app-human',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./human.component.css']
 })
 export class HumanComponent implements OnInit {
+  @Input() thePowerLevel: number;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.thePowerLevel);
   }
 
 }

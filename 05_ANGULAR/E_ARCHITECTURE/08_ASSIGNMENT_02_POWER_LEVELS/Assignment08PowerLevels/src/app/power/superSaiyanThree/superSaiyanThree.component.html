@@ -4,3 +4,6 @@
 
 <h3>SuperSaiyanThree Power: {{ thePowerLevel }}</h3>
 <!-- {{ thePowerLevel }} -->
+<h4 class="offset" *ngIf="thePowerLevel > 9000 && thePowerLevel <= 20000">"Over 9000!"</h4>
+<h4 class="offset" *ngIf="thePowerLevel > 20000 && thePowerLevel < 50000">"Superlative!"</h4>
+<h4 class="offset" *ngIf="thePowerLevel >= 50000">"The One"</h4>

@@ -1,0 +1,58 @@
+.quoteBoxFull {
+  width: 95%;
+  height: 25%;
+  /* background-color: cyan; */
+  margin-bottom: 2%;
+  padding: 2%;
+  border: 2px solid black;
+  /* vertical-align: 100%; */
+}
+
+.quoteBoxA {
+  width: 60%;
+  display: inline-block;
+  vertical-align: top;
+  /* line-height: 300%; */
+  /* background-color: red; */
+}
+
+.quoteBoxB {
+  width: 16%;
+  margin: 0 2% 0 2%;
+  display: inline-block;
+  vertical-align: 210%;
+  text-align: center;
+  /* background-color: green; */
+}
+
+.quoteBoxC {
+  width: 19%;
+  display: inline-block;
+  /* vertical-align: 80%; */
+  text-align: center;
+  /* background-color: blue; */
+}
+
+.textBold {
+  font-weight: bold;
+}
+
+.textItalic {
+  font-style: italic;
+}
+
+.spaceQuote{
+  margin-bottom: 2%;
+}
+
+.spaceButton:not(:first-child) {
+  margin-top: 2%;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}

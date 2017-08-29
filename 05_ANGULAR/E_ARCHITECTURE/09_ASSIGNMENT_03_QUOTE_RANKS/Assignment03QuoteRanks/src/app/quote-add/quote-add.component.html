@@ -1,0 +1,54 @@
+<!-- <p>
+  quote-add works!
+</p> -->
+<h1>Add A Quote</h1>
+<form #quoteForm="ngForm" (ngSubmit)="onFormSubmit(quoteForm)">
+  <div class="quoteLeft">
+    <label for="quoteContent">Content: </label>
+    <textarea class="textAreaItem" rows="8" cols="20" name="quoteContent"
+      placeholder="Please Enter Your Quote Here"
+      required
+      minlength="4"
+      [(ngModel)] = "newQuote.quoteContent"
+      #quoteContent = "ngModel"
+    >
+    </textarea>
+    <label for="quoteAuthor">Author: </label>
+    <input class="inputTextLeft" type="text" name="quoteAuthor"
+      placeholder="Please Enter Quote Author Name Here"
+      required
+      minlength="2"
+      [(ngModel)] = "newQuote.quoteAuthor"
+      #quoteAuthor = "ngModel"
+    >
+    <div class="btn-left">
+      <input class="btnSubmit btnGreen" type="submit" value="Submit">
+    </div>
+  </div>
+  <div class="quoteRight">
+    <span class="errors">
+      <span *ngIf="quoteContent.invalid && ( quoteContent.dirty || quoteContent.untouched)">
+        <span *ngIf="quoteContent.errors.required">
+          You Must Enter A Quote!
+        </span>
+        <span *ngIf="quoteContent.errors.minlength">
+          Quote Must be at least {{ quoteContent.errors.minlength.requiredLength }}
+          ( {{ quoteContent.errors.minlength.actualLength }} / {{ quoteContent.errors.minlength.requiredLength }} )
+        </span>
+      </span>
+    </span>
+    <br><br>
+    <span class="errors">
+      <span *ngIf="quoteAuthor.invalid && ( quoteAuthor.dirty || quoteAuthor.untouched)">
+        <span *ngIf="quoteAuthor.errors.required">
+          You Must Provide an Author Name for your Quote!
+        </span>
+        <span *ngIf="quoteAuthor.errors.minlength">
+          Author Name Must be at least {{ quoteAuthor.errors.minlength.requiredLength }}
+          ( {{ quoteAuthor.errors.minlength.actualLength }} / {{ quoteAuthor.errors.minlength.requiredLength }} )
+        </span>
+      </span>
+    </span>
+  </div>
+</form>
+

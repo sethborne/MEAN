@@ -1,0 +1,10 @@
+.quoteLeft {
+  width: 70%;
+  display: inline-block;
+}
+
+.quoteRight {
+  width: 29%;
+  display: inline-block;
+  vertical-align: top;
+}

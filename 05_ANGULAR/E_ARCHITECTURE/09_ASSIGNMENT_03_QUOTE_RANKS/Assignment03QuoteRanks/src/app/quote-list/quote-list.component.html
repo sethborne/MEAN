@@ -1,0 +1,24 @@
+<!-- <p>
+  quote-list works!
+</p> -->
+<h1>Quote List</h1>
+
+{{ quotesAll | json}}
+
+<div>
+  <div class="quoteBoxFull" *ngFor="let quote of quotesAll">
+    <div class="quoteBoxA">
+      <h3>{{ quote.quoteContent }}</h3>
+      <h5 class="textBold textItalic">- {{ quote.quoteAuthor }}</h5>
+      <div class="spaceQuote"></div>
+    </div>
+    <div class="quoteBoxB">
+    <h1 [ngClass]="{ 'green': quote.quoteRating > 0, 'red': 0>quote.quoteRating}">{{ quote.quoteRating }}</h1>
+    </div>
+    <div class="quoteBoxC">
+      <input class="btnSubmit btnGreen spaceButton" type="button" name="voteUp" value="Vote Up">
+      <input class="btnSubmit btnRed spaceButton"type="button" name="voteDown" value="Vote Down">
+      <input class="btnSubmit btnRedHov spaceButton"type="button" name="delet" value="Delete">
+    </div>
+  </div>
+</div>

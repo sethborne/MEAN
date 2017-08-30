@@ -4,7 +4,8 @@
 }
 
 .quoteRight {
-  width: 29%;
+  width: 25%;
   display: inline-block;
   vertical-align: top;
+  margin: 0 2% ;
 }

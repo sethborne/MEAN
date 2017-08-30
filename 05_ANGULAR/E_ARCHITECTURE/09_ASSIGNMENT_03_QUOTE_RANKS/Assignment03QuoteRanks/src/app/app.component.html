@@ -14,11 +14,17 @@
   </div>
   <hr>
   <div id="body">
-    <app-quote-add ></app-quote-add>
-    <br>
+    <app-quote-add
+      [quotesAll] = "quotesAll"
+      (addQuoteEvent)="addQuote($event)"
+    ></app-quote-add>
+    <br><br>
     <hr>
     <!-- <br> -->
-    <app-quote-list [quotesAll] = "quotesAll"></app-quote-list>
+    <app-quote-list
+      [quotesAll] = "quotesAll"
+      (deleteQuoteEvent)="deleteQuote($event)"
+      ></app-quote-list>
   </div>
 </div>
 

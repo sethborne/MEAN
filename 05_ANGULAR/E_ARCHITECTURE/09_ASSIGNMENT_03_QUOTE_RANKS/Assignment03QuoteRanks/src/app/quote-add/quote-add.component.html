@@ -15,14 +15,15 @@
     </textarea>
     <label for="quoteAuthor">Author: </label>
     <input class="inputTextLeft" type="text" name="quoteAuthor"
-      placeholder="Please Enter Quote Author Name Here"
+      placeholder="Please Enter Quote Author Here"
       required
       minlength="2"
       [(ngModel)] = "newQuote.quoteAuthor"
       #quoteAuthor = "ngModel"
     >
+    <br><br>
     <div class="btn-left">
-      <input class="btnSubmit btnGreen" type="submit" value="Submit">
+      <input class="btnSubmit btnGreen" type="submit" value="Submit" [disabled]="!quoteForm.form.valid">
     </div>
   </div>
   <div class="quoteRight">
@@ -32,7 +33,7 @@
           You Must Enter A Quote!
         </span>
         <span *ngIf="quoteContent.errors.minlength">
-          Quote Must be at least {{ quoteContent.errors.minlength.requiredLength }}
+          Quote Must be at Least {{ quoteContent.errors.minlength.requiredLength }} Characters Long.
           ( {{ quoteContent.errors.minlength.actualLength }} / {{ quoteContent.errors.minlength.requiredLength }} )
         </span>
       </span>
@@ -44,7 +45,7 @@
           You Must Provide an Author Name for your Quote!
         </span>
         <span *ngIf="quoteAuthor.errors.minlength">
-          Author Name Must be at least {{ quoteAuthor.errors.minlength.requiredLength }}
+          Author Name Must be at Least {{ quoteAuthor.errors.minlength.requiredLength }} Characters Long.
           ( {{ quoteAuthor.errors.minlength.actualLength }} / {{ quoteAuthor.errors.minlength.requiredLength }} )
         </span>
       </span>

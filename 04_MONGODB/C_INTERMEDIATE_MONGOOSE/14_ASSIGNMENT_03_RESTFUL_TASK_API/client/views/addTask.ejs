@@ -10,11 +10,38 @@
 <body>
     <div id="mainContainer">
         <div id="header">
+            <div class="left">
+                <ul>
+                    <li><h4>MongoDB: Assignment 03: RESTful Task API: Add Task</h4></li>
+                </ul>
+            </div>
+            <div class="right">
+                <ul>
+                    <li><a href="/tasks"><h4>Return to Show All</h4></a></li>
+                    <li><a href="/"><h4>Return to Index</h4></a></li>
+                </ul>
+            </div>
         </div>
+        <hr>
         <div id="body">
-            <h1>CATS!</h1>
-            <h1>CATS IN PANTS!</h1>
-            <h1>CATS IN PANT SUITS!</h1>
+            <div class="left">
+                <h2>Add Task:</h2>
+                <form action="/task/add" method="POST">
+                    <label for="title">Title:</label>
+                    <input class="inputTextLeft" type="text" name="title">
+                    
+                    <label for="description">Description:</label>
+                    <input class="inputTextLeft" type="text" name="description">
+                    
+                    <!-- <label for="taskCompleted">Completed:</label> <br><br>
+                    <input type="radio" name="taskCompleted" value="False" checked> False
+                    <input type="radio" name="taskCompleted" value="True"> True -->
+                    
+                    <div class="btn-left">
+                        <input class="btnSubmit btnGreen" type="submit" value="Submit Task">
+                    </div>
+                </form>
+            </div>
         </div>
         <div id="foot">
         </div>

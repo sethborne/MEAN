@@ -28,8 +28,8 @@
                     
                 </div>
                 <div class="right">
-                    <a href="/tasks/add">Add Task</a>
-                    <!-- <input class="btnSubmit btnBlue" type="text" value="Add Task"> -->
+                    <a href="/task/add"><input class="btnSubmit btnBlue" type="text" value="Add Task"></a>
+                    
                 </div>
             </div>
             <h1>All Tasks</h1>
@@ -41,17 +41,27 @@
                         <th>Description</th>
                         <th>Completed</th>
                         <th>Created At</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- loop -->
+                <% if( allTasks ){ %>
+                    <% for( var task in allTasks ){ %>
                     <tr>
-                        <td>**ID</td>
-                        <td>**Title</td>
-                        <td>**Description</td>
-                        <td>**Completed</td>
-                        <td>**Created At</td>
+                        <td class="center"><a href="tasks/show/<%= allTasks[task].id %>"><%= allTasks[task].id %></a></td>
+                        <td class="center"><%= allTasks[task].title %></td>
+                        <td class="center"><%= allTasks[task].description %></td>
+                        <td class="center"><%= allTasks[task].completed %></td>
+                        <td class="center"><%= moment(allTasks[task].createdAt, "YYYYMMDD").fromNow() %></td>
+                        <td class="center">
+                            <form action="tasks/delete/<%= allTasks[task].id %>" method="post">
+                                <input class="btnSubmit btnRedHov" type="submit" value="Delete">
+                            </form>
+                        </td>
                     </tr>
+                    <% } %>
+                <% } %>
                 </tbody>
             </table>
         </div>

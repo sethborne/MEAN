@@ -100,8 +100,20 @@ app.get("/tasks/add", function(req, res, next){
 });
 
 // PUT Update One
-app.put("/tasks", function(req, res){
-  
+app.get("/tasks/edit/:id", function(req, res, next){
+  var titleUpdate = req.query.title;
+  var descriptionUpdate = req.query.description;
+  req.body = { title: titleUpdate, description: descriptionUpdate };
+  Task.update({ _id: req.params.id }, req.body, function(err){
+    if(err){
+      console.log(chalk.white.bgRed(" ERROR ON SAVE EDIT "));
+      console.log(err);
+    }
+    else {
+      console.log(chalk.white.bgMagenta(" SHOULD EDIT "));
+      res.redirect("/tasks");
+    }
+  });
 });
 
 // DELETE One

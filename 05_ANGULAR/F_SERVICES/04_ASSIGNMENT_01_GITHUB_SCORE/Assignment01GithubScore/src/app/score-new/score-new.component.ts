@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsernameService } from "./../username.service";
 
 @Component({
   selector: 'app-score-new',
@@ -6,8 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./score-new.component.css']
 })
 export class ScoreNewComponent implements OnInit {
+  username: String = "";
 
-  constructor() { }
+  constructor(private _usernameService: UsernameService){
+    this.username = this._usernameService.getUsername();
+    console.log(`At Score-New:  ${this.username}`);
+  }
+
+  onFormSubmit(){
+    this.username = this.username;
+    console.log(this.username);
+  }
 
   ngOnInit() {
   }

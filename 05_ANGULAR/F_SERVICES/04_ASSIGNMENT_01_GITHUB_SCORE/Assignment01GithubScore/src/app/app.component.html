@@ -16,26 +16,11 @@
     <div class="dojoSurvey">
       <div class="dojoInset">
         <div class="left">
-          <form #usernameForm = "ngForm" (ngSubmit)="onFormSubmit(userForm)">
-            <h1>GitHub Score</h1>
-            <label for="userName">Github Username:</label>
-            <input class="inputTextLeft" type="text" name="username"
-            required
-            minlength="2"
-            [(ngModel)]="username"
-            #userName="ngModel"
-            >
-            <div class="btn-left">
-              <input class="btnSubmit btnGreen" type="submit" value="Submit"
-              [disabled]="!usernameForm.form.valid">
-            </div>
-          </form>
+          <app-score-new></app-score-new>
         </div>
         <div class="right">
           <div class="center">
-            <h1>Your Score: XX</h1>
-            <br>
-            <h3>****MESSAGE</h3>
+            <app-score-list></app-score-list>
           </div>
         </div>
       </div>

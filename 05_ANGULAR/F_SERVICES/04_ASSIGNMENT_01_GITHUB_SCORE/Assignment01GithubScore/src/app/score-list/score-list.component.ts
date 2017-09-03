@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./score-list.component.css']
 })
 export class ScoreListComponent implements OnInit {
-  userName: string = "";
+  username: string = "";
 
   constructor() { }
 

@@ -1,3 +1,17 @@
-<p>
+<!-- <p>
   score-new works!
-</p>
+</p> -->
+<form #usernameForm = "ngForm" (ngSubmit)="onFormSubmit(userForm)">
+  <h1>GitHub Score</h1>
+  <label for="userName">Github Username:</label>
+  <input class="inputTextLeft" type="text" name="username"
+  required
+  minlength="2"
+  [(ngModel)]="username"
+  #userName="ngModel"
+  >
+  <div class="btn-left">
+    <input class="btnSubmit btnGreen" type="submit" value="Submit"
+    [disabled]="!usernameForm.form.valid">
+  </div>
+</form>

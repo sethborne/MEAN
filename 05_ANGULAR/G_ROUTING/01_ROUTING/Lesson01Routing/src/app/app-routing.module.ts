@@ -6,11 +6,27 @@ import { HomeComponent } from "./home/home.component";
 import { NotesPrivateComponent } from "./notes-private/notes-private.component";
 
 const routes: Routes = [
-  // { path: '', children: [] },
-  { path: '', pathMatch: 'full', component: LandingComponent },
-  { path: 'home', component: HomeComponent },
-  // { path: 'notes/private', component: NotesPrivateComponent },
-  // { path: 'gohome', redirectTo: '/home' },
+  // {
+  //   path: '',
+  //   children: []
+  // },
+  {
+    path: '',
+    pathMatch: 'full',
+    component: LandingComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
+  },
+  {
+    path: 'notes/private',
+    component: NotesPrivateComponent
+  },
+  {
+    path: 'gohome',
+    redirectTo: '/home'
+  }
 ];
 
 @NgModule({

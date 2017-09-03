@@ -1,5 +1,4 @@
-<router-outlet></router-outlet>
-<!-- <div id="mainContainer">
+<div id="mainContainer">
   <div id="header">
     <div class="left">
       <ul>
@@ -10,14 +9,26 @@
   </div>
   <hr>
   <div id="body">
+    <!-- <app-home></app-home> -->
+    <ul>
+      <li class="navBar"><a [routerLink]="['']">Index</a></li>
+      <li class="navBar"><a [routerLink]="['home']">Home</a></li>
+      <li class="navBar"><a [routerLink]="['notes', 'private']">Notes Private</a></li>
+      <li class="navBar"><a [routerLink]="['gohome']">Go Home Redirect</a></li>
+    </ul>
+    <br>
     <div class="dojoSurvey">
       <div class="seventy">
-        <h1>Test</h1>
+        <router-outlet>
+          <!-- <h1>Index</h1> -->
+          <!-- <h2>TEMP</h2> -->
+        </router-outlet>
       </div>
     </div>
+
   </div>
-  <div id="foot">
+    <div id="foot">
+    </div>
   </div>
-</div> -->
 
 

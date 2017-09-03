@@ -1,0 +1,7 @@
+#body ul .navBar {
+  display: inline-block;
+}
+
+#body ul .navBar:not(:first-child){
+  padding: 0 0 0 4%;
+}
